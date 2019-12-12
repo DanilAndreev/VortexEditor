@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\Root">
+      <UniqueIdentifier>{34949f7f-3294-4d39-a715-0d141444c029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Fileables">
+      <UniqueIdentifier>{0b0207b1-8e0d-49f9-9c60-c07ab74ce71a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Lists">
+      <UniqueIdentifier>{b5602286-5426-4e55-bf9e-0a03fe53b5c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\CourseClasses">
+      <UniqueIdentifier>{3033964f-8702-41a9-862a-3f98cd02f470}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="String.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Studio.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="OOP_Course.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Lab7OOP.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="FileableArray.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Abonent.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseClass.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="DailyReport.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Date1.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Date2.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Disk.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Operation.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Returnable.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Loadable.h">
+      <Filter>Файлы заголовков\Fileables</Filter>
+    </ClInclude>
+    <ClInclude Include="Saveable.h">
+      <Filter>Файлы заголовков\Fileables</Filter>
+    </ClInclude>
+    <ClInclude Include="Fileable.h">
+      <Filter>Файлы заголовков\Fileables</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayList.h">
+      <Filter>Файлы заголовков\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="FileableArray.h">
+      <Filter>Файлы заголовков\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h">
+      <Filter>Файлы заголовков\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Файлы заголовков\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="SortableArrayList.h">
+      <Filter>Файлы заголовков\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>Файлы заголовков\Lists</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Файлы заголовков\Root</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Файлы заголовков\Root</Filter>
+    </ClInclude>
+    <ClInclude Include="Abonent.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseClass.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="DailyReport.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Date1.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Date2.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Disk.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Nameable.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Operation.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Returnable.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Studio.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="Set.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="file.mclass">
+      <Filter>Файлы заголовков</Filter>
+    </None>
+  </ItemGroup>
+</Project>
