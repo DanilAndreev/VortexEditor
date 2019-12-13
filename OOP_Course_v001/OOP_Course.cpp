@@ -10,6 +10,8 @@
 #include "ArrayList.h"
 #include "BaseClass.h"
 
+#include "Set.h"
+
 int main() {
 	FileableArray* arr = new FileableArray();
 
@@ -37,5 +39,16 @@ int main() {
 	in.close();
 	cout << dynamic_cast<Date2*>(arr->get(2))->getDay() << endl;
 */
+
+	Set<int>* set = new Set<int>([](int less, int higher) -> bool {return less < higher; });
+	set->add(10);
+	set->add(11);
+	set->add(14);
+	set->add(18);
+	set->add(20);
+
+
+	cout << set->searchPosition(15);
+
 
 }

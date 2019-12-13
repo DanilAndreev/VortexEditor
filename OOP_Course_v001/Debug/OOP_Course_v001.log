@@ -1,17 +1,9 @@
-﻿  Abonent.cpp
-  BaseClass.cpp
-  DailyReport.cpp
-  Disk.cpp
-  FileableArray.cpp
-  OOP_Course.cpp
-C:\Users\onepl\source\repos\OOP_Course_v001\OOP_Course_v001\FileableArray.cpp(28,20): warning C4018: <: несоответствие типов со знаком и без знака
-  Operation.cpp
-  String.cpp
-C:\Users\onepl\source\repos\OOP_Course_v001\OOP_Course_v001\OOP_Course.cpp(51,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\onepl\source\repos\OOP_Course_v001\OOP_Course_v001\String.cpp(8,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\onepl\source\repos\OOP_Course_v001\OOP_Course_v001\String.cpp(33,20): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\onepl\source\repos\OOP_Course_v001\OOP_Course_v001\String.cpp(51,20): warning C4018: <: несоответствие типов со знаком и без знака
-  Studio.cpp
-  Создание кода...
-C:\Users\onepl\source\repos\OOP_Course_v001\OOP_Course_v001\String.cpp(77,20): warning C4018: <: несоответствие типов со знаком и без знака
-  OOP_Course_v001.vcxproj -> C:\Users\onepl\source\repos\OOP_Course_v001\Debug\OOP_Course_v001.exe
+﻿  OOP_Course.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\Set.h(26,20): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Projects\OOP_Course\OOP_Course_v001\Set.h(25): message : во время компиляции функции-члена класс шаблон "T Set<T>::search(bool (__cdecl *)(T))"
+D:\Projects\OOP_Course\OOP_Course_v001\Set.h(25): message :         with
+D:\Projects\OOP_Course\OOP_Course_v001\Set.h(25): message :         [
+D:\Projects\OOP_Course\OOP_Course_v001\Set.h(25): message :             T=int
+D:\Projects\OOP_Course\OOP_Course_v001\Set.h(25): message :         ]
+D:\Projects\OOP_Course\OOP_Course_v001\OOP_Course.cpp(43): message : выполняется компиляция ссылки на экземпляр класс шаблон функции "Set<int>"
+  OOP_Course_v001.vcxproj -> D:\Projects\OOP_Course\Debug\OOP_Course_v001.exe
