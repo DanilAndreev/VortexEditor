@@ -39,16 +39,18 @@ int main() {
 	in.close();
 	cout << dynamic_cast<Date2*>(arr->get(2))->getDay() << endl;
 */
-
-	Set<int>* set = new Set<int>([](int less, int higher) -> bool {return less < higher; });
-	set->add(10);
-	set->add(11);
-	set->add(14);
-	set->add(18);
-	set->add(20);
+	Set<int> set;
 
 
-	cout << set->searchPosition(15);
+	set.add(1);
+	set.add(10);
+	set.add(4);
+	set.add(12);
+	set.add(2);
+	set.add(3);
 
-
+	for (int i = 0; i < set.size(); i++) {
+		cout << set.get(i) << " ";
+	}
+	cout << endl;
 }

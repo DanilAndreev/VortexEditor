@@ -44,6 +44,7 @@
     <ClInclude Include="Exception.h" />
     <ClInclude Include="Fileable.h" />
     <ClInclude Include="FileableArray.h" />
+    <ClInclude Include="HashSet.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Loadable.h" />
