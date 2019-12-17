@@ -25,7 +25,7 @@ void FileableArray::load(ifstream& stream) {
 	}
 	size_t quantity = 0;
 	stream.read((char*) & (quantity), sizeof(size_t));
-	for (int i = 0; i < quantity; i++) {
+	for (size_t i = 0; i < quantity; i++) {
 		size_t hash = 0;
 		stream.read((char*) & (hash), sizeof(size_t));
 		Fileable* object = nullptr;

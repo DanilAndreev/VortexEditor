@@ -1,25 +1,19 @@
 ﻿#include <iostream>
-
-#include "FileableArray.h"
-#include "SortableArrayList.h"
-#include "cstdlib"
-#include <ctime>
-#include <algorithm>
-
 #include "Date2.h"
-#include "ArrayList.h"
+
 #include "BaseClass.h"
 
-#include "Set.h"
+#include "FVector.h"
+
 
 int main() {
-	FileableArray* arr = new FileableArray();
+	FVector* arr = new FVector();
 
 
 /*
-	arr->add(new Date2(1, 2, 3));
-	arr->add(new Date2(4, 5, 6));
-	arr->add(new Date2(7, 8, 9));
+	arr->push_back(new Date2(1, 2, 3));
+	arr->push_back(new Date2(4, 5, 6));
+	arr->push_back(new Date2(7, 8, 9));
 
 	ofstream out("test.cls", ios::binary);
 	arr->save(out);
@@ -27,30 +21,15 @@ int main() {
 */
 
 
-/*
+
 	ifstream in("test.cls", ios::binary);
-	arr->addLoadableType([](size_t hash) -> Fileable* {
-			if (hash == typeid(Date2).hash_code()) {
-				return new Date2();
-			}
-			return nullptr;
-		});
+	arr->addObjectCreator(typeid(Date2).hash_code(), []() -> Fileable* { return new Date2(); });
 	arr->load(in);
 	in.close();
 	cout << dynamic_cast<Date2*>(arr->get(2))->getDay() << endl;
-*/
-	Set<int> set;
+
+	
 
 
-	set.add(1);
-	set.add(10);
-	set.add(4);
-	set.add(12);
-	set.add(2);
-	set.add(3);
-
-	for (int i = 0; i < set.size(); i++) {
-		cout << set.get(i) << " ";
-	}
-	cout << endl;
+	delete arr;
 }
