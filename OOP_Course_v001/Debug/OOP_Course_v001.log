@@ -1,6 +1,0 @@
-﻿  OOP_Course.cpp
-D:\Projects\OOP_Course\OOP_Course_v001\OOP_Course.cpp(52): warning C4018: <: несоответствие типов со знаком и без знака
-D:\Projects\OOP_Course\OOP_Course_v001\Set.h(33): warning C4018: <: несоответствие типов со знаком и без знака
-  D:\Projects\OOP_Course\OOP_Course_v001\Set.h(32): note: при компиляции функции-члена "<Нет данных>" класса класс <Нет данных>
-  D:\Projects\OOP_Course\OOP_Course_v001\OOP_Course.cpp(42): note: выполняется компиляция ссылки на экземпляр шаблон класс "Set<int>"
-  OOP_Course_v001.vcxproj -> D:\Projects\OOP_Course\Debug\OOP_Course_v001.exe

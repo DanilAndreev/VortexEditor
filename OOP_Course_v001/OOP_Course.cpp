@@ -1,56 +1,50 @@
 ﻿#include <iostream>
-
-#include "FileableArray.h"
-#include "SortableArrayList.h"
-#include "cstdlib"
-#include <ctime>
-#include <algorithm>
-
 #include "Date2.h"
-#include "ArrayList.h"
-#include "BaseClass.h"
 
-#include "Set.h"
+#include "DailyReport.h"
+void save_test() {
+	DailyReport* report = new DailyReport();
 
-int main() {
-	FileableArray* arr = new FileableArray();
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
 
 
-/*
-	arr->add(new Date2(1, 2, 3));
-	arr->add(new Date2(4, 5, 6));
-	arr->add(new Date2(7, 8, 9));
+	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
+	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
+	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
+	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
+
 
 	ofstream out("test.cls", ios::binary);
-	arr->save(out);
+	report->save(out);
 	out.close();
-*/
 
+	delete report;
+}
 
-/*
+void load_test() {
+	DailyReport* report = new DailyReport();
+
 	ifstream in("test.cls", ios::binary);
-	arr->addLoadableType([](size_t hash) -> Fileable* {
-			if (hash == typeid(Date2).hash_code()) {
-				return new Date2();
-			}
-			return nullptr;
-		});
-	arr->load(in);
+	report->load(in);
 	in.close();
-	cout << dynamic_cast<Date2*>(arr->get(2))->getDay() << endl;
-*/
-	Set<int> set;
+	wcout << L"name:" << report->getReturn(2)->getDisk().getName() << endl;
+	wcout << L"name:" << report->getExtradiotion(3)->getDisk().getName() << endl;
 
+	delete report;
+}
 
-	set.add(1);
-	set.add(10);
-	set.add(4);
-	set.add(12);
-	set.add(2);
-	set.add(3);
-
-	for (int i = 0; i < set.size(); i++) {
-		cout << set.get(i) << " ";
-	}
-	cout << endl;
+int main() {
+	//save_test();
+	load_test();
 }

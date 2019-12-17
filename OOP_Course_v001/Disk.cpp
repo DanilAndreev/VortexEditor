@@ -22,32 +22,30 @@ Studio Disk::getStudio() const {
 }
 
 void Disk::save(ofstream& stream) const {
-	size_t hash = typeid(Date2).hash_code();
+	size_t hash = typeid(Disk).hash_code();
 	stream.write((char*)&hash, sizeof(size_t));
 	stream.write((char*) & (this->length), sizeof(unsigned int));
 
-	size_t nameLength = this->name.length() + 1;
-	stream.write((char*) & nameLength, sizeof(size_t));
-	const char* c_name = this->name.c_str();
-	stream.write(c_name, nameLength*sizeof(char));
-	delete[] c_name;
 	this->studio.save(stream);
 	Date2::save(stream);
+	this->name.save(stream);
 }
 
 void Disk::load(ifstream& stream) {
 	size_t hash = 0;
 	stream.read((char*)&hash, sizeof(size_t));
-	if (hash != typeid(Date1).hash_code()) {
+	if (hash != typeid(Disk).hash_code()) {
 		throw WrongInputFileException();
 	}
 	stream.read((char*) & (this->length), sizeof(unsigned int));
-	size_t nameLength = 0;
-	stream.read((char*)&nameLength, sizeof(size_t));
-	char* name = new char[nameLength];
-	stream.read(name, nameLength*sizeof(char));
-	this->name = String(name);
-	delete[] name;
 	this->studio.load(stream);
 	Date2::load(stream);
+	this->name.load(stream);
+}
+
+void Disk::operator=(const Disk& reference) {
+	this->length = reference.length;
+	this->studio = reference.studio;
+	Date2::operator=(reference);
+	Nameable::operator=(reference);
 }

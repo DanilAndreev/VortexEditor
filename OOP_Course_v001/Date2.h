@@ -10,7 +10,9 @@ public:
 	Date2(const Date2& reference);
 	short getDay() const;
 	void setDay(const short day);
-	virtual void save(ofstream & stream) const;
-	virtual void load(ifstream& stream);
+	virtual void save(ofstream & stream) const override;
+	virtual void load(ifstream& stream) override;
+public:
+	void operator=(const Date2& reference);
 };
 

@@ -1,7 +1,7 @@
 #include "Date1.h"
 
 Date1::Date1(const short year, const short month) : Object() {
-	if (year < 0 || month < 0 || month > 11) {
+	if (year < 0 || month <= 0 || month > 12) {
 		throw WrongInputValuesException();
 	}
 	this->year = year;
@@ -50,4 +50,9 @@ void Date1::load(ifstream& stream) {
 	}
 	stream.read((char*) & (this->year), sizeof(short));
 	stream.read((char*) & (this->month), sizeof(short));
+}
+
+void Date1::operator=(const Date1& reference) {
+	this->year = reference.year;
+	this->month = reference.month;
 }

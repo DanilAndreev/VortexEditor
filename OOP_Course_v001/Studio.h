@@ -1,17 +1,17 @@
 #pragma once
 #include "Date2.h"
-#include "String.h"
+//#include "FWString.h"
+#include "Nameable.h"
 
-class Studio : public Date2 {
-protected:
-	String name;
+class Studio : public Date2, public Nameable{
 public:
-	Studio(const String name, const short year, const short month, const short day) : Date2(year, month, day), name(name) {}
-	Studio() : Date2(), name("") {}
-	~Studio() {}
+	Studio(const FWString name, const short year, const short month, const short day) : Date2(year, month, day), Nameable(name) {}
+	Studio() : Date2(), Nameable(L"") {}
 	Studio(const Studio& reference);
+	~Studio() {}
 
-	void setName(const String name);
-	String getName() const;
+	virtual void save(ofstream& stream) const override;
+	virtual void load(ifstream& stream) override;
+public:
+	void operator= (const Studio& reference);
 };
-
