@@ -1,3 +1,5 @@
-/.vs/*
-/Debug/*
-/OOP_Course_v001/Debug/*
+.vs
+Debug
+OOP_Course_v001/Debug
+.git
+
