@@ -123,7 +123,7 @@
       <Filter>Файлы заголовков\Lists</Filter>
     </ClInclude>
     <ClInclude Include="DailyReportException.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Root</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
