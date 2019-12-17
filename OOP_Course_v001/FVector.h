@@ -9,10 +9,12 @@ class FVector : public vector<Fileable*>, public Fileable, public Object{
 	HashSet<Fileable* (*)(void)> creators;
 public:
 	FVector(): vector<Fileable*>(), Fileable(), Object() {}
-	FVector(const FVector& reference) : vector<Fileable*>(reference), Fileable(reference), Object(reference) {}
+	FVector(const FVector& reference);
 	~FVector() {}
 	virtual Fileable* get(size_t index) const;
-	virtual void save(ofstream& stream) const;
-	virtual void load(ifstream& stream);
-	void addObjectCreator(size_t hash, Fileable* (*creator)(void));
+	virtual void save(ofstream& stream) const override;
+	virtual void load(ifstream& stream) override;
+	virtual void addObjectCreator(size_t hash, Fileable* (*creator)(void));
+public:
+	void operator=(const FVector& reference);
 };

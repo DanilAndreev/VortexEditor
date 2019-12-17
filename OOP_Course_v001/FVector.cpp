@@ -1,6 +1,10 @@
 #include "FVector.h"
 
 
+FVector::FVector(const FVector& reference) : vector<Fileable*>(reference), Fileable(reference), Object(reference) {
+	this->creators = reference.creators;
+}
+
 Fileable* FVector::get(size_t index) const {
 	if (index < 0 || index >= this->size()) {
 		throw IndexOutOfBoundsException();
@@ -47,4 +51,9 @@ void FVector::load(ifstream& stream) {
 
 void FVector::addObjectCreator(size_t hash, Fileable* (*creator)(void)) {
 	this->creators.add(hash, creator);
+}
+
+void FVector::operator=(const FVector& reference) {
+	vector<Fileable*>::operator=(reference);
+	this->creators = reference.creators;
 }

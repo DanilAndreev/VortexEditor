@@ -4,7 +4,7 @@
 #include "Date2.h"
 #include "Disk.h"
 
-class Operation : public Returnable {
+class Operation : public Returnable, public Fileable {
 protected:
 	Date2 date;
 	Abonent abonent;
@@ -20,5 +20,9 @@ public:
 	Abonent getAbonent() const;
 	void setDisk(const Disk disk);
 	Disk getDisk() const;
+	virtual void save(ofstream& stream) const override;
+	virtual void load(ifstream& stream) override;
+public:
+	void operator= (const Operation& reference);
 };
 

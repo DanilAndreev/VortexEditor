@@ -9,5 +9,6 @@ public:
 	Returnable(const Returnable& reference);
 	bool isReturn() const { return this->isreturn; }
 	void setType(const bool isreturn) { this->isreturn = isreturn; }
+public:
+	void operator= (const Returnable& reference);
 };
-

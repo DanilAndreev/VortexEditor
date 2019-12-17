@@ -1,16 +1,2 @@
-﻿  Abonent.cpp
-  BaseClass.cpp
-  DailyReport.cpp
-  Disk.cpp
-  FVector.cpp
-  FileableArray.cpp
-  OOP_Course.cpp
-  Operation.cpp
-  String.cpp
-D:\Projects\OOP_Course\OOP_Course_v001\String.cpp(8): warning C4018: <: несоответствие типов со знаком и без знака
-D:\Projects\OOP_Course\OOP_Course_v001\String.cpp(33): warning C4018: <: несоответствие типов со знаком и без знака
-D:\Projects\OOP_Course\OOP_Course_v001\String.cpp(51): warning C4018: <: несоответствие типов со знаком и без знака
-D:\Projects\OOP_Course\OOP_Course_v001\String.cpp(77): warning C4018: <: несоответствие типов со знаком и без знака
-  Studio.cpp
-  Создание кода...
+﻿  OOP_Course.cpp
   OOP_Course_v001.vcxproj -> D:\Projects\OOP_Course\Debug\OOP_Course_v001.exe

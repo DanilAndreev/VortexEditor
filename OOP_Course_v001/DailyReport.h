@@ -1,19 +1,23 @@
 #pragma once
 #include "Object.h"
-#include "FileableArray.h"
+#include "FVector.h"
+#include "Operation.h"
+#include "DailyReportException.h"
 
-
-class DailyReport : public Object {
+class DailyReport : public Object, public Fileable {
 protected:
-	FileableArray returns;
-	FileableArray extraditions;
+	FVector returns;
+	FVector extraditions;
 public:
-	DailyReport() {}
+	DailyReport();
 	~DailyReport() {}
 	DailyReport(const DailyReport& reference);
-	void addReturn(Fileable* return_);
-	Fileable* getReturn(const size_t index) const;
-	void addExtradition(Fileable* extradition);
-	Fileable* getExtradiotion(const size_t index) const;
+	void addReturn(Operation* return_);
+	Operation* getReturn(const size_t index) const;
+	void addExtradition(Operation* extradition);
+	Operation* getExtradiotion(const size_t index) const;
+	virtual void save(ofstream& stream) const override;
+	virtual void load(ifstream& stream) override;
+public:
+	void operator= (const DailyReport& reference);
 };
-

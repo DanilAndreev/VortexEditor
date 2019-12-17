@@ -41,3 +41,8 @@ void Date2::load(ifstream& stream) {
 	stream.read((char*) & (this->day), sizeof(short));
 	Date1::load(stream);
 }
+
+void Date2::operator=(const Date2& reference) {
+	this->day = reference.day;
+	Date1::operator=(reference);
+}
