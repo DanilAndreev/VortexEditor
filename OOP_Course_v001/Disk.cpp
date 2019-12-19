@@ -22,8 +22,8 @@ Studio Disk::getStudio() const {
 }
 
 void Disk::save(ofstream& stream) const {
-	size_t hash = typeid(Disk).hash_code();
-	stream.write((char*)&hash, sizeof(size_t));
+	hash_code hash = (hash_code)typeid(Disk).hash_code();
+	stream.write((char*)&hash, sizeof(hash_code));
 	stream.write((char*) & (this->length), sizeof(unsigned int));
 
 	this->studio.save(stream);
@@ -32,9 +32,9 @@ void Disk::save(ofstream& stream) const {
 }
 
 void Disk::load(ifstream& stream) {
-	size_t hash = 0;
-	stream.read((char*)&hash, sizeof(size_t));
-	if (hash != typeid(Disk).hash_code()) {
+	hash_code hash = 0;
+	stream.read((char*)&hash, sizeof(hash_code));
+	if (hash != (hash_code)typeid(Disk).hash_code()) {
 		throw WrongInputFileException();
 	}
 	stream.read((char*) & (this->length), sizeof(unsigned int));

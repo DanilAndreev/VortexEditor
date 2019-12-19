@@ -45,13 +45,13 @@ void save_test() {
 
 void load_test() {
 	DailyReport* report = new DailyReport();
-
+	
 	ifstream in("test.cls", ios::binary);
 	report->load(in);
 	in.close();
 	wcout << L"name:" << report->getReturn(2)->getDisk().getName() << endl;
 	wcout << L"name:" << report->getExtradiotion(3)->getDisk().getName() << endl;
-
+	
 	wstring buff;
 	wstring token;
 	wifstream in_json("test.json");

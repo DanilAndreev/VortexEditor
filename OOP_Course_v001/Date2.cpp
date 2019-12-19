@@ -26,16 +26,16 @@ void Date2::setDay(const short day) {
 }
 
 void Date2::save(ofstream& stream) const {
-	size_t hash = typeid(Date2).hash_code();
-	stream.write((char*)&hash, sizeof(size_t));
+	hash_code hash = (hash_code)typeid(Date2).hash_code();
+	stream.write((char*)&hash, sizeof(hash_code));
 	stream.write((char*) & (this->day), sizeof(short));
 	Date1::save(stream);
 }
 
 void Date2::load(ifstream& stream) {
-	size_t hash = 0;
-	stream.read((char*)&hash, sizeof(size_t));
-	if (hash != typeid(Date2).hash_code()) {
+	hash_code hash = 0;
+	stream.read((char*)&hash, sizeof(hash_code));
+	if (hash != (hash_code)typeid(Date2).hash_code()) {
 		throw WrongInputFileException();
 	}
 	stream.read((char*) & (this->day), sizeof(short));
