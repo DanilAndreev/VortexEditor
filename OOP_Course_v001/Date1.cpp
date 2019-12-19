@@ -56,21 +56,21 @@ MagicJSON::JsonObject Date1::serialize() {
 	MagicJSON::JsonObject json;
 	json.addString(L"__type", L"date");
 	json.addInteger(L"__hash", typeid(Date1).hash_code());
-	json.addInteger(L"month", this->month);
-	json.addInteger(L"year", this->year);
+	json.addInteger(L"month", (long)this->month);
+	json.addInteger(L"year", (long)this->year);
 	return json;
 }
 
 void Date1::deserialize(MagicJSON::JsonObject json) {
 	try {
 		if (json.getString(L"__type") != L"date") {
-			throw exception();
+			throw UnexpectedTypeException();
 		}
-		this->month = json.getInteger(L"month");
-		this->year = json.getInteger(L"year");
+		this->month = (short)json.getInteger(L"month");
+		this->year = (short)json.getInteger(L"year");
 	}
 	catch (MagicJSON::NoObjectFoundException e){
-		throw exception();
+		throw IncorrectObjectDataException();
 	}
 }
 

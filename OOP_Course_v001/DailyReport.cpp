@@ -86,7 +86,7 @@ void DailyReport::deserialize(MagicJSON::JsonObject json) {
 		this->extraditions.clear();
 		wstring type = json.getString(L"__type");
 		if (type.compare(wstring(L"dailyreport"))) {
-			throw exception();
+			throw UnexpectedTypeException();
 		}
 		MagicJSON::JsonArray jreturns = json.getArray(L"returns");
 		MagicJSON::JsonArray jextraditions = json.getArray(L"extraditions");
@@ -97,7 +97,7 @@ void DailyReport::deserialize(MagicJSON::JsonObject json) {
 			Fileable* item = this->returns.getObjectCreator(s_hash)();
 			Serializeable* serializeable = nullptr;
 			if ((serializeable = dynamic_cast<Serializeable*>(item)) == nullptr) {
-				throw exception();
+				throw IncorrectObjectDataException();
 			}
 			serializeable->deserialize(object);
 			this->returns.push_back(item);
@@ -107,16 +107,42 @@ void DailyReport::deserialize(MagicJSON::JsonObject json) {
 			Fileable* item = this->returns.getObjectCreator(object.getInteger(L"__hash"))();
 			Serializeable* serializeable = nullptr;
 			if ((serializeable = dynamic_cast<Serializeable*>(item)) == nullptr) {
-				throw exception();
+				throw IncorrectObjectDataException();
 			}
 			serializeable->deserialize(object);
 			this->extraditions.push_back(item);
 		}
 	}
 	catch (MagicJSON::NoObjectFoundException e) {
-		throw exception();
+		throw IncorrectObjectDataException();
 	}
 }
+
+Operation DailyReport::find(const wstring name) const {
+	for (Fileable* item : this->returns) {
+		Operation* operation = dynamic_cast<Operation*>(item);
+		if (operation) {
+			if (operation->getAbonent().getName() == name) {
+				return *operation;
+			}
+		}
+	}
+	throw NoObjectFoundException();
+}
+
+
+Operation DailyReport::find(const short year) const {
+	for (Fileable* item : this->returns) {
+		Operation* operation = dynamic_cast<Operation*>(item);
+		if (operation) {
+			if (operation->getAbonent().getYear() == year) {
+				return *operation;
+			}
+		}
+	}
+	throw NoObjectFoundException();
+}
+
 
 void DailyReport::operator=(const DailyReport& reference) {
 	this->returns = reference.returns;

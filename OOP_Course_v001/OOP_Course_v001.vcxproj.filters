@@ -31,6 +31,9 @@
     <Filter Include="Файлы заголовков\MagicJSON">
       <UniqueIdentifier>{f8a9fbee-51aa-4246-abed-b231aaee2553}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Root\Exceptions">
+      <UniqueIdentifier>{91be2bb6-9c83-418d-ab26-ad93c32bbcf4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Abonent.cpp">
@@ -80,9 +83,6 @@
     <ClInclude Include="Fileable.h">
       <Filter>Файлы заголовков\Fileables</Filter>
     </ClInclude>
-    <ClInclude Include="Exception.h">
-      <Filter>Файлы заголовков\Root</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Файлы заголовков\Root</Filter>
     </ClInclude>
@@ -122,31 +122,37 @@
     <ClInclude Include="FWString.h">
       <Filter>Файлы заголовков\Lists</Filter>
     </ClInclude>
-    <ClInclude Include="DailyReportException.h">
-      <Filter>Файлы заголовков\Root</Filter>
-    </ClInclude>
     <ClInclude Include="Serializeable.h">
       <Filter>Файлы заголовков\CourseClasses</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\include\JsonArray.h">
+    <ClInclude Include="Exception.h">
+      <Filter>Файлы заголовков\Root\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="DailyReportException.h">
+      <Filter>Файлы заголовков\Root\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="SerializeExceptions.h">
+      <Filter>Файлы заголовков\Root\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="MagicJSON\x64\include\JsonArray.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\include\JsonExceptions.h">
+    <ClInclude Include="MagicJSON\x64\include\JsonExceptions.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\include\JsonItem.h">
+    <ClInclude Include="MagicJSON\x64\include\JsonItem.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\include\JsonObject.h">
+    <ClInclude Include="MagicJSON\x64\include\JsonObject.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\include\JsonString.h">
+    <ClInclude Include="MagicJSON\x64\include\JsonString.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\include\JsonTokenizer.h">
+    <ClInclude Include="MagicJSON\x64\include\JsonTokenizer.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\include\MagicJSON.h">
+    <ClInclude Include="MagicJSON\x64\include\MagicJSON.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
   </ItemGroup>

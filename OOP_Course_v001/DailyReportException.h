@@ -3,14 +3,10 @@
 
 class InputIsNotReturn : public WrongInputDataException {
 public:
-	virtual string getMessage() const override {
-		return string("Error: InputIsNotReturn");
-	}
+	char const* what() const override { return "Error: InputIsNotReturn"; }
 };
 
 class InputIsNotExtradition : public WrongInputDataException {
 public:
-	virtual string getMessage() const override {
-		return string("Error: InputIsNotExtradition");
-	}
+	char const* what() const override { return "Error: InputIsNotExtradition"; }
 };

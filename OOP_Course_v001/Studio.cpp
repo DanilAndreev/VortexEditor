@@ -33,13 +33,13 @@ MagicJSON::JsonObject Studio::serialize() {
 void Studio::deserialize(MagicJSON::JsonObject json) {
 	try {
 		if (json.getString(L"__type") != L"studio") {
-			throw exception();
+			throw UnexpectedTypeException();
 		}
 		this->name = json.getString(L"name");
 		Date2::deserialize(json.getObject(L"date"));
 	}
 	catch (MagicJSON::NoObjectFoundException e) {
-		throw exception();
+		throw IncorrectObjectDataException();
 	}
 }
 

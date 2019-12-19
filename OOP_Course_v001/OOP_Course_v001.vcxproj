@@ -45,19 +45,20 @@
     <ClInclude Include="FWString.h" />
     <ClInclude Include="HashSet.h" />
     <ClInclude Include="Loadable.h" />
-    <ClInclude Include="MagicJSON\include\JsonArray.h" />
-    <ClInclude Include="MagicJSON\include\JsonExceptions.h" />
-    <ClInclude Include="MagicJSON\include\JsonItem.h" />
-    <ClInclude Include="MagicJSON\include\JsonObject.h" />
-    <ClInclude Include="MagicJSON\include\JsonString.h" />
-    <ClInclude Include="MagicJSON\include\JsonTokenizer.h" />
-    <ClInclude Include="MagicJSON\include\MagicJSON.h" />
+    <ClInclude Include="MagicJSON\x64\include\JsonArray.h" />
+    <ClInclude Include="MagicJSON\x64\include\JsonExceptions.h" />
+    <ClInclude Include="MagicJSON\x64\include\JsonItem.h" />
+    <ClInclude Include="MagicJSON\x64\include\JsonObject.h" />
+    <ClInclude Include="MagicJSON\x64\include\JsonString.h" />
+    <ClInclude Include="MagicJSON\x64\include\JsonTokenizer.h" />
+    <ClInclude Include="MagicJSON\x64\include\MagicJSON.h" />
     <ClInclude Include="Nameable.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Operation.h" />
     <ClInclude Include="Returnable.h" />
     <ClInclude Include="Saveable.h" />
     <ClInclude Include="Serializeable.h" />
+    <ClInclude Include="SerializeExceptions.h" />
     <ClInclude Include="Studio.h" />
   </ItemGroup>
   <ItemGroup>
@@ -151,7 +152,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\MagicJSON\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\MagicJSON\x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
