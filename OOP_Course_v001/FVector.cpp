@@ -14,8 +14,8 @@ Fileable* FVector::get(size_t index) const {
 
 
 void FVector::save(ofstream& stream) const {
-	size_t hash = typeid(FVector).hash_code();
-	stream.write((char*) & (hash), sizeof(size_t));
+	hash_code hash = (hash_code)typeid(FVector).hash_code();
+	stream.write((char*) & (hash), sizeof(hash_code));
 	size_t quantity = this->size();
 	stream.write((char*) & (quantity), sizeof(size_t));
 	for (size_t i = 0; i < quantity; i++) {
@@ -26,16 +26,16 @@ void FVector::save(ofstream& stream) const {
 
 void FVector::load(ifstream& stream) {
 	this->clear();
-	size_t hash = 0;
-	stream.read((char*) & (hash), sizeof(size_t));
-	if (hash != typeid(FVector).hash_code()) {
+	hash_code hash = 0;
+	stream.read((char*) & (hash), sizeof(hash_code));
+	if (hash != (hash_code)typeid(FVector).hash_code()) {
 		throw WrongInputFileException();
 	}
 	size_t quantity = 0;
 	stream.read((char*) & (quantity), sizeof(size_t));
 	for (size_t i = 0; i < quantity; i++) {
-		size_t hash = 0;
-		stream.read((char*) & (hash), sizeof(size_t));
+		hash_code hash = 0;
+		stream.read((char*) & (hash), sizeof(hash_code));
 		Fileable* object = nullptr;
 		try {
 			object = this->creators.get(hash)();
@@ -43,7 +43,7 @@ void FVector::load(ifstream& stream) {
 		catch (NoObjectFoundException e) {
 			throw UnknownDataTypeException();
 		}
-		stream.seekg((-1) * (long)sizeof(size_t), ios::cur);
+		stream.seekg((-1) * (long)sizeof(hash_code), ios::cur);
 		object->load(stream);
 		this->push_back(object);
 	}
@@ -51,6 +51,10 @@ void FVector::load(ifstream& stream) {
 
 void FVector::addObjectCreator(size_t hash, Fileable* (*creator)(void)) {
 	this->creators.add(hash, creator);
+}
+
+Fileable* (*FVector::getObjectCreator(size_t hash))(void) {
+	return this->creators.get(hash);
 }
 
 void FVector::operator=(const FVector& reference) {

@@ -2,8 +2,9 @@
 #include "Object.h"
 #include "Fileable.h"
 #include "Exception.h"
+#include "Serializeable.h"
 
-class Date1 : public Object, public Fileable {
+class Date1 : public Object, public Fileable, public Serializeable {
 protected:
 	short year;
 	short month;
@@ -16,8 +17,11 @@ public:
 	void setYear(const short year);
 	short getMonth() const;
 	void setMonth(const short year);
-	virtual void save(ofstream& stream) const override;
-	virtual void load(ifstream& stream) override;
+public:
+	void save(ofstream& stream) const override;
+	void load(ifstream& stream) override;
+	MagicJSON::JsonObject serialize() override;
+	void deserialize(MagicJSON::JsonObject json) override;
 public:
 	void operator= (const Date1& reference);
 };

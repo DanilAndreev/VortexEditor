@@ -36,21 +36,44 @@ void Date1::setMonth(const short month) {
 }
 
 void Date1::save(ofstream& stream) const {
-	size_t hash = typeid(Date1).hash_code();
-	stream.write((char*)&hash, sizeof(size_t));
+	hash_code hash = (hash_code)typeid(Date1).hash_code();
+	stream.write((char*)&hash, sizeof(hash_code));
 	stream.write((char*)&(this->year), sizeof(short));
 	stream.write((char*)&(this->month), sizeof(short));
 }
 
 void Date1::load(ifstream& stream) {
-	size_t hash = 0;
-	stream.read((char*) & hash, sizeof(size_t));
-	if (hash != typeid(Date1).hash_code()) {
+	hash_code hash = 0;
+	stream.read((char*) & hash, sizeof(hash_code));
+	if (hash != (hash_code)typeid(Date1).hash_code()) {
 		throw WrongInputFileException();
 	}
 	stream.read((char*) & (this->year), sizeof(short));
 	stream.read((char*) & (this->month), sizeof(short));
 }
+
+MagicJSON::JsonObject Date1::serialize() {
+	MagicJSON::JsonObject json;
+	json.addString(L"__type", L"date");
+	json.addInteger(L"__hash", typeid(Date1).hash_code());
+	json.addInteger(L"month", this->month);
+	json.addInteger(L"year", this->year);
+	return json;
+}
+
+void Date1::deserialize(MagicJSON::JsonObject json) {
+	try {
+		if (json.getString(L"__type") != L"date") {
+			throw exception();
+		}
+		this->month = json.getInteger(L"month");
+		this->year = json.getInteger(L"year");
+	}
+	catch (MagicJSON::NoObjectFoundException e){
+		throw exception();
+	}
+}
+
 
 void Date1::operator=(const Date1& reference) {
 	this->year = reference.year;

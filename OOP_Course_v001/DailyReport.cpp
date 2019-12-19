@@ -1,8 +1,8 @@
 #include "DailyReport.h"
 
 DailyReport::DailyReport() {
-	this->extraditions.addObjectCreator(typeid(Operation).hash_code(), []() -> Fileable * { return new Operation(); });
-	this->returns.addObjectCreator(typeid(Operation).hash_code(), []() -> Fileable * { return new Operation(); });
+	this->extraditions.addObjectCreator((hash_code)typeid(Operation).hash_code(), []() -> Fileable * { return new Operation(); });
+	this->returns.addObjectCreator((hash_code)typeid(Operation).hash_code(), []() -> Fileable * { return new Operation(); });
 }
 
 DailyReport::DailyReport(const DailyReport& reference) : Object(reference) {
@@ -41,20 +41,81 @@ Operation* DailyReport::getExtradiotion(const size_t index) const {
 }
 
 void DailyReport::save(ofstream& stream) const {
-	size_t hash = typeid(DailyReport).hash_code();
-	stream.write((char*)& hash, sizeof(size_t));
+	hash_code hash = (hash_code)typeid(DailyReport).hash_code();
+	stream.write((char*)& hash, sizeof(hash_code));
 	this->extraditions.save(stream);
 	this->returns.save(stream);
 }
 
 void DailyReport::load(ifstream& stream) {
-	size_t hash = 0;
-	stream.read((char*)& hash, sizeof(size_t));
-	if (hash != typeid(DailyReport).hash_code()) {
+	hash_code hash = 0;
+	stream.read((char*)& hash, sizeof(hash_code));
+	if (hash != (hash_code)typeid(DailyReport).hash_code()) {
 		throw WrongInputFileException();
 	}
 	this->extraditions.load(stream);
 	this->returns.load(stream);
+}
+
+MagicJSON::JsonObject DailyReport::serialize() {
+	MagicJSON::JsonObject json;
+	MagicJSON::JsonArray jreturns;
+	MagicJSON::JsonArray jextraditions;
+	for (Fileable* item : this->returns) {
+		Serializeable* serializeable = nullptr;
+		if ((serializeable = dynamic_cast<Serializeable*>(item)) != nullptr) {
+			jreturns.addObject(serializeable->serialize());
+		}		
+	}
+	for (Fileable* item : this->extraditions) {
+		Serializeable* serializeable = nullptr;
+		if ((serializeable = dynamic_cast<Serializeable*>(item)) != nullptr) {
+			jextraditions.addObject(serializeable->serialize());
+		}
+	}
+	json.addString(L"__type", L"dailyreport");
+	json.addInteger(L"__hash", typeid(DailyReport).hash_code());
+	json.addArray(L"returns", jreturns);
+	json.addArray(L"extraditions", jextraditions);
+	return json;
+}
+
+void DailyReport::deserialize(MagicJSON::JsonObject json) {
+	try {
+		this->returns.clear();
+		this->extraditions.clear();
+		wstring type = json.getString(L"__type");
+		if (type.compare(wstring(L"dailyreport"))) {
+			throw exception();
+		}
+		MagicJSON::JsonArray jreturns = json.getArray(L"returns");
+		MagicJSON::JsonArray jextraditions = json.getArray(L"extraditions");
+		for (size_t i = 0; i < jreturns.size(); i++) {
+			MagicJSON::JsonObject object = jreturns.getObject(i);
+			long hash = object.getInteger(L"__hash");
+			size_t s_hash = (size_t)hash;
+			Fileable* item = this->returns.getObjectCreator(s_hash)();
+			Serializeable* serializeable = nullptr;
+			if ((serializeable = dynamic_cast<Serializeable*>(item)) == nullptr) {
+				throw exception();
+			}
+			serializeable->deserialize(object);
+			this->returns.push_back(item);
+		}
+		for (size_t i = 0; i < jextraditions.size(); i++) {
+			MagicJSON::JsonObject object = jextraditions.getObject(i);
+			Fileable* item = this->returns.getObjectCreator(object.getInteger(L"__hash"))();
+			Serializeable* serializeable = nullptr;
+			if ((serializeable = dynamic_cast<Serializeable*>(item)) == nullptr) {
+				throw exception();
+			}
+			serializeable->deserialize(object);
+			this->extraditions.push_back(item);
+		}
+	}
+	catch (MagicJSON::NoObjectFoundException e) {
+		throw exception();
+	}
 }
 
 void DailyReport::operator=(const DailyReport& reference) {

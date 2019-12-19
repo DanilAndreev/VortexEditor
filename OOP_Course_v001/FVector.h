@@ -15,6 +15,7 @@ public:
 	virtual void save(ofstream& stream) const override;
 	virtual void load(ifstream& stream) override;
 	virtual void addObjectCreator(size_t hash, Fileable* (*creator)(void));
+	virtual Fileable* (*getObjectCreator(size_t hash))(void);
 public:
 	void operator=(const FVector& reference);
 };

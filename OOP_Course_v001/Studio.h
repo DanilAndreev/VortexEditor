@@ -9,9 +9,11 @@ public:
 	Studio() : Date2(), Nameable(L"") {}
 	Studio(const Studio& reference);
 	~Studio() {}
-
-	virtual void save(ofstream& stream) const override;
-	virtual void load(ifstream& stream) override;
+public:
+	void save(ofstream& stream) const override;
+	void load(ifstream& stream) override;
+	MagicJSON::JsonObject serialize() override;
+	void deserialize(MagicJSON::JsonObject json) override;
 public:
 	void operator= (const Studio& reference);
 };
