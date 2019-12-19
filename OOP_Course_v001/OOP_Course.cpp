@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include "Date2.h"
-
+#include "Menu.h"
 #include "DailyReport.h"
 void save_test() {
 	DailyReport* report = new DailyReport();
@@ -47,4 +47,9 @@ void load_test() {
 int main() {
 	//save_test();
 	load_test();
+
+	Menu::Menu* menu = new Menu::Menu();
+	menu->addOption(new Menu::Option());
+
+	delete menu;
 }
