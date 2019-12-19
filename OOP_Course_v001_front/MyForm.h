@@ -35,6 +35,8 @@ namespace OOPCoursev001front {
 			}
 		}
 
+	protected:
+
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -48,12 +50,23 @@ namespace OOPCoursev001front {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->SuspendLayout();
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(1264, 681);
+			this->Name = L"MyForm";
+			this->Text = L"Fimls redactor";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void ToolStripContainer1_ContentPanel_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
 	};
 }
