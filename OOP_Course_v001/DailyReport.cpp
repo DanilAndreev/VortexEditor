@@ -118,6 +118,32 @@ void DailyReport::deserialize(MagicJSON::JsonObject json) {
 	}
 }
 
+Operation DailyReport::find(const wstring name) const {
+	for (Fileable* item : this->returns) {
+		Operation* operation = dynamic_cast<Operation*>(item);
+		if (operation) {
+			if (operation->getAbonent().getName() == name) {
+				return *operation;
+			}
+		}
+	}
+	throw NoObjectFoundException();
+}
+
+
+Operation DailyReport::find(const short year) const {
+	for (Fileable* item : this->returns) {
+		Operation* operation = dynamic_cast<Operation*>(item);
+		if (operation) {
+			if (operation->getAbonent().getYear() == year) {
+				return *operation;
+			}
+		}
+	}
+	throw NoObjectFoundException();
+}
+
+
 void DailyReport::operator=(const DailyReport& reference) {
 	this->returns = reference.returns;
 	this->extraditions = reference.extraditions;

@@ -22,5 +22,8 @@ public:
 	MagicJSON::JsonObject serialize() override;
 	void deserialize(MagicJSON::JsonObject json) override;
 public:
+	Operation find(const wstring name) const;
+	Operation find(const short year) const;
+public:
 	void operator= (const DailyReport& reference);
 };
