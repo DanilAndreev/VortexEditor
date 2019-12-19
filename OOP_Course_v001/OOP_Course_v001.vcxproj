@@ -21,60 +21,48 @@
   <ItemGroup>
     <ClCompile Include="Abonent.cpp" />
     <ClCompile Include="BaseClass.cpp" />
-    <ClCompile Include="CorectnessParser.cpp" />
     <ClCompile Include="DailyReport.cpp" />
     <ClCompile Include="Date1.cpp" />
     <ClCompile Include="Date2.cpp" />
     <ClCompile Include="Disk.cpp" />
     <ClCompile Include="FVector.cpp" />
     <ClCompile Include="FWString.cpp" />
-    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Nameable.cpp" />
     <ClCompile Include="OOP_Course.cpp" />
     <ClCompile Include="Operation.cpp" />
-    <ClCompile Include="Option.cpp" />
     <ClCompile Include="Returnable.cpp" />
     <ClCompile Include="Studio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abonent.h" />
-    <ClInclude Include="Appearance.h" />
-    <ClInclude Include="ATable.h" />
     <ClInclude Include="BaseClass.h" />
-    <ClInclude Include="Cell.h" />
-    <ClInclude Include="Column.h" />
-    <ClInclude Include="ConstColumn.h" />
-    <ClInclude Include="CorectnessParser.h" />
     <ClInclude Include="DailyReport.h" />
     <ClInclude Include="DailyReportException.h" />
     <ClInclude Include="Date1.h" />
     <ClInclude Include="Date2.h" />
-    <ClInclude Include="DefaultAppearance.h" />
-    <ClInclude Include="DefaultCells.h" />
     <ClInclude Include="Disk.h" />
     <ClInclude Include="Exception.h" />
     <ClInclude Include="Fileable.h" />
     <ClInclude Include="FVector.h" />
     <ClInclude Include="FWString.h" />
     <ClInclude Include="HashSet.h" />
-    <ClInclude Include="IdColumn.h" />
     <ClInclude Include="Loadable.h" />
-    <ClInclude Include="Menu.h" />
-    <ClInclude Include="MenuExceptions.h" />
+    <ClInclude Include="MagicJSON\JsonArray.h" />
+    <ClInclude Include="MagicJSON\JsonExceptions.h" />
+    <ClInclude Include="MagicJSON\JsonItem.h" />
+    <ClInclude Include="MagicJSON\JsonObject.h" />
+    <ClInclude Include="MagicJSON\JsonString.h" />
+    <ClInclude Include="MagicJSON\JsonTokenizer.h" />
+    <ClInclude Include="MagicJSON\MagicJSON.h" />
     <ClInclude Include="Nameable.h" />
-    <ClInclude Include="NamedColumn.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Operation.h" />
-    <ClInclude Include="Option.h" />
     <ClInclude Include="Returnable.h" />
     <ClInclude Include="Saveable.h" />
-    <ClInclude Include="SimpleColumn.h" />
     <ClInclude Include="Studio.h" />
-    <ClInclude Include="Table.h" />
-    <ClInclude Include="TableExceptions.h" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="ATable.lib" />
+    <Library Include="MagicJSON\x64\MagicJSON.lib" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -164,10 +152,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>.\MagicJSON\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>.\MagicJSON\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>MagicJSON.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -52,6 +52,25 @@ void Date1::load(ifstream& stream) {
 	stream.read((char*) & (this->month), sizeof(short));
 }
 
+MagicJSON::JsonObject Date1::serialize() {
+	MagicJSON::JsonObject json;
+	json.addInteger(L"hash", typeid(Date1).hash_code());
+	json.addInteger(L"month", this->month);
+	json.addInteger(L"year", this->year);
+	return json;
+}
+
+void Date1::deserialize(MagicJSON::JsonObject json) {
+	try {
+		this->month = json.getInteger(L"month");
+		this->year = json.getInteger(L"year");
+	}
+	catch (NoObjectFoundException e){
+
+	}
+}
+
+
 void Date1::operator=(const Date1& reference) {
 	this->year = reference.year;
 	this->month = reference.month;

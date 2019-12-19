@@ -25,17 +25,11 @@
     <Filter Include="Файлы заголовков\CourseClasses">
       <UniqueIdentifier>{3033964f-8702-41a9-862a-3f98cd02f470}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Menu">
-      <UniqueIdentifier>{1c31f65a-33f2-481e-8b8f-90d5f1fe4efd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы ресурсов\Menu">
-      <UniqueIdentifier>{82d31e54-476d-47cc-adfb-5ace95e90b8e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы ресурсов\Lists">
       <UniqueIdentifier>{c74759ae-404b-43e8-b435-a03e55583bbd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\ATable">
-      <UniqueIdentifier>{44febf1b-f72e-4f6d-9d3c-5e41245be5d5}</UniqueIdentifier>
+    <Filter Include="Файлы заголовков\MagicJSON">
+      <UniqueIdentifier>{f8a9fbee-51aa-4246-abed-b231aaee2553}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -71,15 +65,6 @@
     </ClCompile>
     <ClCompile Include="Nameable.cpp">
       <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Файлы ресурсов\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="Option.cpp">
-      <Filter>Файлы ресурсов\Menu</Filter>
-    </ClCompile>
-    <ClCompile Include="CorectnessParser.cpp">
-      <Filter>Файлы ресурсов\Menu</Filter>
     </ClCompile>
     <ClCompile Include="FVector.cpp">
       <Filter>Файлы ресурсов\Lists</Filter>
@@ -146,57 +131,30 @@
     <ClInclude Include="DailyReportException.h">
       <Filter>Файлы заголовков\Root</Filter>
     </ClInclude>
-    <ClInclude Include="CorectnessParser.h">
-      <Filter>Файлы заголовков\Menu</Filter>
+    <ClInclude Include="MagicJSON\JsonArray.h">
+      <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Файлы заголовков\Menu</Filter>
+    <ClInclude Include="MagicJSON\JsonExceptions.h">
+      <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MenuExceptions.h">
-      <Filter>Файлы заголовков\Menu</Filter>
+    <ClInclude Include="MagicJSON\JsonItem.h">
+      <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="Option.h">
-      <Filter>Файлы заголовков\Menu</Filter>
+    <ClInclude Include="MagicJSON\JsonObject.h">
+      <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="Appearance.h">
-      <Filter>Файлы заголовков\ATable</Filter>
+    <ClInclude Include="MagicJSON\JsonString.h">
+      <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="ATable.h">
-      <Filter>Файлы заголовков\ATable</Filter>
+    <ClInclude Include="MagicJSON\JsonTokenizer.h">
+      <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="Cell.h">
-      <Filter>Файлы заголовков\ATable</Filter>
-    </ClInclude>
-    <ClInclude Include="Column.h">
-      <Filter>Файлы заголовков\ATable</Filter>
-    </ClInclude>
-    <ClInclude Include="ConstColumn.h">
-      <Filter>Файлы заголовков\ATable</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultAppearance.h">
-      <Filter>Файлы заголовков\ATable</Filter>
-    </ClInclude>
-    <ClInclude Include="DefaultCells.h">
-      <Filter>Файлы заголовков\ATable</Filter>
-    </ClInclude>
-    <ClInclude Include="IdColumn.h">
-      <Filter>Файлы заголовков\ATable</Filter>
-    </ClInclude>
-    <ClInclude Include="NamedColumn.h">
-      <Filter>Файлы заголовков\ATable</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleColumn.h">
-      <Filter>Файлы заголовков\ATable</Filter>
-    </ClInclude>
-    <ClInclude Include="Table.h">
-      <Filter>Файлы заголовков\ATable</Filter>
-    </ClInclude>
-    <ClInclude Include="TableExceptions.h">
-      <Filter>Файлы заголовков\ATable</Filter>
+    <ClInclude Include="MagicJSON\MagicJSON.h">
+      <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="ATable.lib">
+    <Library Include="MagicJSON\x64\MagicJSON.lib">
       <Filter>Файлы ресурсов</Filter>
     </Library>
   </ItemGroup>

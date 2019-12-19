@@ -1,9 +1,11 @@
 ﻿#include <iostream>
 #include "Date2.h"
-#include "Menu.h"
 #include "DailyReport.h"
+#include "MagicJSON.h"
+
 void save_test() {
 	DailyReport* report = new DailyReport();
+
 
 	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
 		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
@@ -48,8 +50,5 @@ int main() {
 	//save_test();
 	load_test();
 
-	Menu::Menu* menu = new Menu::Menu();
-	menu->addOption(new Menu::Option());
 
-	delete menu;
 }
