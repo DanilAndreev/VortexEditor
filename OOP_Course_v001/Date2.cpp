@@ -60,13 +60,13 @@ MagicJSON::JsonObject Date2::serialize() {
 void Date2::deserialize(MagicJSON::JsonObject json) {
 	try {
 		if (json.getString(L"__type") != L"date") {
-			throw exception();
+			throw UnexpectedTypeException();
 		}
 		this->month = (short)json.getInteger(L"month");
 		this->year = (short)json.getInteger(L"year");
 		this->day = (short)json.getInteger(L"day");
 	}
 	catch (MagicJSON::NoObjectFoundException e) {
-		throw exception();
+		throw IncorrectObjectDataException();
 	}
 }

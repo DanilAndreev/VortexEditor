@@ -57,7 +57,7 @@ MagicJSON::JsonObject Disk::serialize() {
 void Disk::deserialize(MagicJSON::JsonObject json) {
 	try {
 		if (json.getString(L"__type") != L"disk") {
-			throw exception();
+			throw UnexpectedTypeException();
 		}
 		this->name = json.getString(L"name");
 		this->length = json.getInteger(L"length");
@@ -65,7 +65,7 @@ void Disk::deserialize(MagicJSON::JsonObject json) {
 		this->studio.deserialize(json.getObject(L"studio"));
 	}
 	catch (MagicJSON::NoObjectFoundException e) {
-		throw exception();
+		throw IncorrectObjectDataException();
 	}
 }
 

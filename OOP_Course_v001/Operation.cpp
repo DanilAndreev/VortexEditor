@@ -65,7 +65,7 @@ MagicJSON::JsonObject Operation::serialize() {
 void Operation::deserialize(MagicJSON::JsonObject json) {
 	try {
 		if (json.getString(L"__type") != L"operation") {
-			throw exception();
+			throw UnexpectedTypeException();
 		}
 		this->date.deserialize(json.getObject(L"date"));
 		this->abonent.deserialize(json.getObject(L"abonent"));
@@ -73,7 +73,7 @@ void Operation::deserialize(MagicJSON::JsonObject json) {
 		this->isreturn = (bool)json.getInteger(L"is_return");
 	}
 	catch (MagicJSON::NoObjectFoundException e) {
-		throw exception();
+		throw IncorrectObjectDataException();
 	}
 }
 

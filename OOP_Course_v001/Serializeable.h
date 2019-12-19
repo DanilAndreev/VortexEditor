@@ -1,5 +1,6 @@
 #pragma once
 #include "MagicJSON.h"
+#include "SerializeExceptions.h"
 
 class Serializeable {
 public:

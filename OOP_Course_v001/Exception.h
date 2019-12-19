@@ -1,78 +1,50 @@
 #pragma once
-#include <string>
-#include "Object.h"
+#include <exception>
 
 using namespace std;
 
-class Exception : public Object, public exception {
+
+class WrongInputFileException : public exception {
 public:
-	Exception() {}
-	virtual ~Exception() {}
-	virtual string getMessage() const { return ""; }
-	virtual char const* what() const {
-		return this->getMessage().c_str();
-	}
+	char const* what() const override { return "Error: WrongInputFileException"; }
 };
 
-class WrongInputFileException : public Exception {
+class UnknownDataTypeException : public exception {
 public:
-	virtual string getMessage() const override {
-		return string("Error: WrongInputFileException");
-	}
+	char const* what() const override { return "Error: UnknownDataTypeException"; }
 };
 
-class UnknownDataTypeException : public Exception {
+class IndexOutOfBoundsException : public exception {
 public:
-	virtual string getMessage() const override {
-		return string("Error: UnknownDataTypeException");
-	}
+	char const* what() const override { return "Error: IndexOutOfBoundsException"; }
 };
 
-class IndexOutOfBoundsException : public Exception {
+class WrongInputDataException : public exception {
 public:
-	virtual string getMessage() const override {
-		return string("Error: IndexOutOfBoundsException");
-	}
-};
-
-class WrongInputDataException : public Exception {
-public:
-	virtual string getMessage() const override {
-		return string("Error: WrongInputDataException");
-	}
+	char const* what() const override { return "Error: WrongInputDataException"; }
 };
 
 class WrongInputValuesException : public WrongInputDataException {
 public:
-	virtual string getMessage() const override {
-		return string("Error: WrongInputValuesExxception");
-	}
+	char const* what() const override { return "Error: WrongInputValuesException"; }
 };
 
-class SearchException : public Exception {
+class SearchException : public exception {
 public:
-	virtual string getMessage() const override {
-		return string("Error: SearchException");
-	}
+	char const* what() const override { return "Error: SearchException"; }
 };
 
 class NoObjectFoundException : public SearchException {
 public:
-	virtual string getMessage() const override {
-		return string("Error: NoObjectFoundException");
-	}
+	char const* what() const override { return "Error: NoObjectFoundException"; }
 };
 
 class IncorrectRangeException : public SearchException {
 public:
-	virtual string getMessage() const override {
-		return string("Error: IncorrectRangeException");
-	}
+	char const* what() const override { return "Error: IncorrectRangeException"; }
 };
 
-class ZeroPointerException : public Exception {
+class ZeroPointerException : public exception {
 public:
-	virtual string getMessage() const override {
-		return string("Error: ZeroPtrException");
-	}
+	char const* what() const override { return "Error: ZeroPointerException"; }
 };

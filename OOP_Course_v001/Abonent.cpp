@@ -42,14 +42,14 @@ MagicJSON::JsonObject Abonent::serialize() {
 void Abonent::deserialize(MagicJSON::JsonObject json) {
 	try {
 		if (json.getString(L"__type") != L"abonent") {
-			throw exception();
+			throw UnexpectedTypeException();
 		}
 		this->name = json.getString(L"name");
 		this->surename = json.getString(L"surename");
 		Date1::deserialize(json.getObject(L"date"));
 	}
 	catch (MagicJSON::NoObjectFoundException e) {
-		throw exception();
+		throw IncorrectObjectDataException();
 	}
 }
 
