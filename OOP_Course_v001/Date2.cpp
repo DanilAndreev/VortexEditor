@@ -46,3 +46,27 @@ void Date2::operator=(const Date2& reference) {
 	this->day = reference.day;
 	Date1::operator=(reference);
 }
+
+MagicJSON::JsonObject Date2::serialize() {
+	MagicJSON::JsonObject json;
+	json.addString(L"__type", L"date");
+	json.addInteger(L"__hash", typeid(Date2).hash_code());
+	json.addInteger(L"month", this->month);
+	json.addInteger(L"year", this->year);
+	json.addInteger(L"day", this->day);
+	return json;
+}
+
+void Date2::deserialize(MagicJSON::JsonObject json) {
+	try {
+		if (json.getString(L"__type") != L"date") {
+			throw exception();
+		}
+		this->month = json.getInteger(L"month");
+		this->year = json.getInteger(L"year");
+		this->day = json.getInteger(L"day");
+	}
+	catch (MagicJSON::NoObjectFoundException e) {
+		throw exception();
+	}
+}

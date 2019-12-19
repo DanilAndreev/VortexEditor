@@ -10,8 +10,11 @@ public:
 	Date2(const Date2& reference);
 	short getDay() const;
 	void setDay(const short day);
-	virtual void save(ofstream & stream) const override;
-	virtual void load(ifstream& stream) override;
+public:
+	void save(ofstream & stream) const override;
+	void load(ifstream& stream) override;
+	MagicJSON::JsonObject serialize() override;
+	void deserialize(MagicJSON::JsonObject json) override;
 public:
 	void operator=(const Date2& reference);
 };

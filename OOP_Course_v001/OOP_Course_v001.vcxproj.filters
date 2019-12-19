@@ -36,9 +36,6 @@
     <ClCompile Include="Abonent.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="BaseClass.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="DailyReport.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -92,9 +89,6 @@
     <ClInclude Include="Abonent.h">
       <Filter>Файлы заголовков\CourseClasses</Filter>
     </ClInclude>
-    <ClInclude Include="BaseClass.h">
-      <Filter>Файлы заголовков\CourseClasses</Filter>
-    </ClInclude>
     <ClInclude Include="DailyReport.h">
       <Filter>Файлы заголовков\CourseClasses</Filter>
     </ClInclude>
@@ -131,25 +125,28 @@
     <ClInclude Include="DailyReportException.h">
       <Filter>Файлы заголовков\Root</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\JsonArray.h">
+    <ClInclude Include="Serializeable.h">
+      <Filter>Файлы заголовков\CourseClasses</Filter>
+    </ClInclude>
+    <ClInclude Include="MagicJSON\include\JsonArray.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\JsonExceptions.h">
+    <ClInclude Include="MagicJSON\include\JsonExceptions.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\JsonItem.h">
+    <ClInclude Include="MagicJSON\include\JsonItem.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\JsonObject.h">
+    <ClInclude Include="MagicJSON\include\JsonObject.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\JsonString.h">
+    <ClInclude Include="MagicJSON\include\JsonString.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\JsonTokenizer.h">
+    <ClInclude Include="MagicJSON\include\JsonTokenizer.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="MagicJSON\MagicJSON.h">
+    <ClInclude Include="MagicJSON\include\MagicJSON.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
   </ItemGroup>

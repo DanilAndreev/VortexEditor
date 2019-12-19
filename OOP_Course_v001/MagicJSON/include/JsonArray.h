@@ -32,6 +32,7 @@ namespace MagicJSON {
 		using vector<JsonItem*>::clear;
 		using vector<JsonItem*>::capacity;
 		using vector<JsonItem*>::empty;
+		using vector<JsonItem*>::size;
 	protected:
 		void parse(wstring json);
 	public:

@@ -51,6 +51,32 @@ void Operation::load(ifstream& stream) {
 	this->disk.load(stream);
 }
 
+MagicJSON::JsonObject Operation::serialize() {
+	MagicJSON::JsonObject json;
+	json.addString(L"__type", L"operation");
+	json.addInteger(L"__hash", typeid(Operation).hash_code());
+	json.addObject(L"date", this->date.serialize());
+	json.addObject(L"abonent", this->abonent.serialize());
+	json.addObject(L"disk", this->disk.serialize());
+	json.addInteger(L"is_return", (long)(this->isreturn));
+	return json;
+}
+
+void Operation::deserialize(MagicJSON::JsonObject json) {
+	try {
+		if (json.getString(L"__type") != L"operation") {
+			throw exception();
+		}
+		this->date.deserialize(json.getObject(L"date"));
+		this->date.deserialize(json.getObject(L"abonent"));
+		this->date.deserialize(json.getObject(L"disk"));
+		this->isreturn = (bool)json.getInteger(L"is_return");
+	}
+	catch (MagicJSON::NoObjectFoundException e) {
+		throw exception();
+	}
+}
+
 void Operation::operator=(const Operation& reference) {
 	this->date = reference.date;
 	this->abonent = reference.abonent;

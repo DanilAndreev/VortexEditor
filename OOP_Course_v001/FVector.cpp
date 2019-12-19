@@ -53,6 +53,10 @@ void FVector::addObjectCreator(size_t hash, Fileable* (*creator)(void)) {
 	this->creators.add(hash, creator);
 }
 
+Fileable* (*FVector::getObjectCreator(size_t hash))(void) {
+	return this->creators.get(hash);
+}
+
 void FVector::operator=(const FVector& reference) {
 	vector<Fileable*>::operator=(reference);
 	this->creators = reference.creators;

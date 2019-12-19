@@ -57,6 +57,67 @@ void DailyReport::load(ifstream& stream) {
 	this->returns.load(stream);
 }
 
+MagicJSON::JsonObject DailyReport::serialize() {
+	MagicJSON::JsonObject json;
+	MagicJSON::JsonArray jreturns;
+	MagicJSON::JsonArray jextraditions;
+	for (Fileable* item : this->returns) {
+		Serializeable* serializeable = nullptr;
+		if ((serializeable = dynamic_cast<Serializeable*>(item)) != nullptr) {
+			jreturns.addObject(serializeable->serialize());
+		}		
+	}
+	for (Fileable* item : this->extraditions) {
+		Serializeable* serializeable = nullptr;
+		if ((serializeable = dynamic_cast<Serializeable*>(item)) != nullptr) {
+			jextraditions.addObject(serializeable->serialize());
+		}
+	}
+	json.addString(L"__type", L"dailyreport");
+	json.addInteger(L"__hash", typeid(DailyReport).hash_code());
+	json.addArray(L"returns", jreturns);
+	json.addArray(L"extraditions", jextraditions);
+	return json;
+}
+
+void DailyReport::deserialize(MagicJSON::JsonObject json) {
+	try {
+		this->returns.clear();
+		this->extraditions.clear();
+		wstring type = json.getString(L"__type");
+		if (type.compare(wstring(L"dailyreport"))) {
+			throw exception();
+		}
+		MagicJSON::JsonArray jreturns = json.getArray(L"returns");
+		MagicJSON::JsonArray jextraditions = json.getArray(L"extraditions");
+		for (size_t i = 0; i < jreturns.size(); i++) {
+			MagicJSON::JsonObject object = jreturns.getObject(i);
+			long hash = object.getInteger(L"__hash");
+			size_t s_hash = (size_t)hash;
+			Fileable* item = this->returns.getObjectCreator(s_hash)();
+			Serializeable* serializeable = nullptr;
+			if ((serializeable = dynamic_cast<Serializeable*>(item)) == nullptr) {
+				throw exception();
+			}
+			serializeable->deserialize(object);
+			this->returns.push_back(item);
+		}
+		for (size_t i = 0; i < jextraditions.size(); i++) {
+			MagicJSON::JsonObject object = jextraditions.getObject(i);
+			Fileable* item = this->returns.getObjectCreator(object.getInteger(L"__hash"))();
+			Serializeable* serializeable = nullptr;
+			if ((serializeable = dynamic_cast<Serializeable*>(item)) == nullptr) {
+				throw exception();
+			}
+			serializeable->deserialize(object);
+			this->extraditions.push_back(item);
+		}
+	}
+	catch (MagicJSON::NoObjectFoundException e) {
+		throw exception();
+	}
+}
+
 void DailyReport::operator=(const DailyReport& reference) {
 	this->returns = reference.returns;
 	this->extraditions = reference.extraditions;

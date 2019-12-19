@@ -18,5 +18,7 @@ namespace MagicJSON {
 		virtual JsonItem* copy() override;
 	public:
 		using wstring::operator=;
+		using wstring::operator+=;
+		using wstring::compare;
 	};
 }

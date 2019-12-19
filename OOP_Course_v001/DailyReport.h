@@ -4,7 +4,7 @@
 #include "Operation.h"
 #include "DailyReportException.h"
 
-class DailyReport : public Object, public Fileable {
+class DailyReport : public Object, public Fileable, public Serializeable{
 protected:
 	FVector returns;
 	FVector extraditions;
@@ -16,8 +16,11 @@ public:
 	Operation* getReturn(const size_t index) const;
 	void addExtradition(Operation* extradition);
 	Operation* getExtradiotion(const size_t index) const;
-	virtual void save(ofstream& stream) const override;
-	virtual void load(ifstream& stream) override;
+public:
+	void save(ofstream& stream) const override;
+	void load(ifstream& stream) override;
+	MagicJSON::JsonObject serialize() override;
+	void deserialize(MagicJSON::JsonObject json) override;
 public:
 	void operator= (const DailyReport& reference);
 };

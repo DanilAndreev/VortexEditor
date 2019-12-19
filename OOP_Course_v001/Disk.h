@@ -19,8 +19,11 @@ public:
 	unsigned int getLength() const;
 	void setStudio(const Studio studio);
 	Studio getStudio() const;
-	virtual void save(ofstream& stream) const override;
-	virtual void load(ifstream& stream) override;
+public:
+	void save(ofstream& stream) const override;
+	void load(ifstream& stream) override;
+	MagicJSON::JsonObject serialize() override;
+	void deserialize(MagicJSON::JsonObject json) override;
 public:
 	void operator= (const Disk& reference);
 };

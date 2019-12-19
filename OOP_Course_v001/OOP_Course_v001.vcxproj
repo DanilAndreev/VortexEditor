@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Abonent.cpp" />
-    <ClCompile Include="BaseClass.cpp" />
     <ClCompile Include="DailyReport.cpp" />
     <ClCompile Include="Date1.cpp" />
     <ClCompile Include="Date2.cpp" />
@@ -35,7 +34,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abonent.h" />
-    <ClInclude Include="BaseClass.h" />
     <ClInclude Include="DailyReport.h" />
     <ClInclude Include="DailyReportException.h" />
     <ClInclude Include="Date1.h" />
@@ -47,18 +45,19 @@
     <ClInclude Include="FWString.h" />
     <ClInclude Include="HashSet.h" />
     <ClInclude Include="Loadable.h" />
-    <ClInclude Include="MagicJSON\JsonArray.h" />
-    <ClInclude Include="MagicJSON\JsonExceptions.h" />
-    <ClInclude Include="MagicJSON\JsonItem.h" />
-    <ClInclude Include="MagicJSON\JsonObject.h" />
-    <ClInclude Include="MagicJSON\JsonString.h" />
-    <ClInclude Include="MagicJSON\JsonTokenizer.h" />
-    <ClInclude Include="MagicJSON\MagicJSON.h" />
+    <ClInclude Include="MagicJSON\include\JsonArray.h" />
+    <ClInclude Include="MagicJSON\include\JsonExceptions.h" />
+    <ClInclude Include="MagicJSON\include\JsonItem.h" />
+    <ClInclude Include="MagicJSON\include\JsonObject.h" />
+    <ClInclude Include="MagicJSON\include\JsonString.h" />
+    <ClInclude Include="MagicJSON\include\JsonTokenizer.h" />
+    <ClInclude Include="MagicJSON\include\MagicJSON.h" />
     <ClInclude Include="Nameable.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Operation.h" />
     <ClInclude Include="Returnable.h" />
     <ClInclude Include="Saveable.h" />
+    <ClInclude Include="Serializeable.h" />
     <ClInclude Include="Studio.h" />
   </ItemGroup>
   <ItemGroup>

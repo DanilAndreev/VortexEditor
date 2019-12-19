@@ -54,7 +54,8 @@ void Date1::load(ifstream& stream) {
 
 MagicJSON::JsonObject Date1::serialize() {
 	MagicJSON::JsonObject json;
-	json.addInteger(L"hash", typeid(Date1).hash_code());
+	json.addString(L"__type", L"date");
+	json.addInteger(L"__hash", typeid(Date1).hash_code());
 	json.addInteger(L"month", this->month);
 	json.addInteger(L"year", this->year);
 	return json;
@@ -62,11 +63,14 @@ MagicJSON::JsonObject Date1::serialize() {
 
 void Date1::deserialize(MagicJSON::JsonObject json) {
 	try {
+		if (json.getString(L"__type") != L"date") {
+			throw exception();
+		}
 		this->month = json.getInteger(L"month");
 		this->year = json.getInteger(L"year");
 	}
-	catch (NoObjectFoundException e){
-
+	catch (MagicJSON::NoObjectFoundException e){
+		throw exception();
 	}
 }
 

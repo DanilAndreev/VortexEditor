@@ -18,8 +18,8 @@ public:
 	short getMonth() const;
 	void setMonth(const short year);
 public:
-	virtual void save(ofstream& stream) const override;
-	virtual void load(ifstream& stream) override;
+	void save(ofstream& stream) const override;
+	void load(ifstream& stream) override;
 	MagicJSON::JsonObject serialize() override;
 	void deserialize(MagicJSON::JsonObject json) override;
 public:
