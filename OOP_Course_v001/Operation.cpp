@@ -31,8 +31,8 @@ Disk Operation::getDisk() const {
 }
 
 void Operation::save(ofstream& stream) const {
-	size_t hash = typeid(Operation).hash_code();
-	stream.write((char*)& hash, sizeof(size_t));
+	hash_code hash = (hash_code)typeid(Operation).hash_code();
+	stream.write((char*)& hash, sizeof(hash_code));
 	stream.write((char*)& this->isreturn, sizeof(bool));
 	this->date.save(stream);
 	this->abonent.save(stream);
@@ -40,9 +40,9 @@ void Operation::save(ofstream& stream) const {
 }
 
 void Operation::load(ifstream& stream) {
-	size_t hash = 0;
-	stream.read((char*)& hash, sizeof(size_t));
-	if (hash != typeid(Operation).hash_code()) {
+	hash_code hash = 0;
+	stream.read((char*)& hash, sizeof(hash_code));
+	if (hash != (hash_code)typeid(Operation).hash_code()) {
 		throw WrongInputFileException();
 	}
 	stream.read((char*)& this->isreturn, sizeof(bool));
@@ -68,8 +68,8 @@ void Operation::deserialize(MagicJSON::JsonObject json) {
 			throw exception();
 		}
 		this->date.deserialize(json.getObject(L"date"));
-		this->date.deserialize(json.getObject(L"abonent"));
-		this->date.deserialize(json.getObject(L"disk"));
+		this->abonent.deserialize(json.getObject(L"abonent"));
+		this->disk.deserialize(json.getObject(L"disk"));
 		this->isreturn = (bool)json.getInteger(L"is_return");
 	}
 	catch (MagicJSON::NoObjectFoundException e) {

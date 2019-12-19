@@ -1,8 +1,8 @@
 #include "DailyReport.h"
 
 DailyReport::DailyReport() {
-	this->extraditions.addObjectCreator(typeid(Operation).hash_code(), []() -> Fileable * { return new Operation(); });
-	this->returns.addObjectCreator(typeid(Operation).hash_code(), []() -> Fileable * { return new Operation(); });
+	this->extraditions.addObjectCreator((hash_code)typeid(Operation).hash_code(), []() -> Fileable * { return new Operation(); });
+	this->returns.addObjectCreator((hash_code)typeid(Operation).hash_code(), []() -> Fileable * { return new Operation(); });
 }
 
 DailyReport::DailyReport(const DailyReport& reference) : Object(reference) {
@@ -41,16 +41,16 @@ Operation* DailyReport::getExtradiotion(const size_t index) const {
 }
 
 void DailyReport::save(ofstream& stream) const {
-	size_t hash = typeid(DailyReport).hash_code();
-	stream.write((char*)& hash, sizeof(size_t));
+	hash_code hash = (hash_code)typeid(DailyReport).hash_code();
+	stream.write((char*)& hash, sizeof(hash_code));
 	this->extraditions.save(stream);
 	this->returns.save(stream);
 }
 
 void DailyReport::load(ifstream& stream) {
-	size_t hash = 0;
-	stream.read((char*)& hash, sizeof(size_t));
-	if (hash != typeid(DailyReport).hash_code()) {
+	hash_code hash = 0;
+	stream.read((char*)& hash, sizeof(hash_code));
+	if (hash != (hash_code)typeid(DailyReport).hash_code()) {
 		throw WrongInputFileException();
 	}
 	this->extraditions.load(stream);

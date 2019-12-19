@@ -1,8 +1,8 @@
 #include "FWString.h"
 
 void FWString::save(ofstream& stream) const {
-	size_t hash = typeid(FWString).hash_code();
-	stream.write((char*) & (hash), sizeof(size_t));
+	hash_code hash = (hash_code)typeid(FWString).hash_code();
+	stream.write((char*) & (hash), sizeof(hash_code));
 	size_t length = this->length() + 1;
 	stream.write((char*) & (length), sizeof(size_t));
 	LPCWSTR str = this->c_str();
@@ -11,9 +11,9 @@ void FWString::save(ofstream& stream) const {
 
 void FWString::load(ifstream& stream) {
 	this->clear();
-	size_t hash = 0;
-	stream.read((char*) & (hash), sizeof(size_t));
-	if (hash != typeid(FWString).hash_code()) {
+	hash_code hash = 0;
+	stream.read((char*) & (hash), sizeof(hash_code));
+	if (hash != (hash_code)typeid(FWString).hash_code()) {
 		throw WrongInputFileException();
 	}
 	size_t length = 0;
