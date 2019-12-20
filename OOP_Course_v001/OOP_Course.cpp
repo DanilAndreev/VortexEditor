@@ -3,6 +3,8 @@
 #include "DailyReport.h"
 #include "MagicJSON.h"
 
+#include "Pipeable.h"
+
 void save_test() {
 	DailyReport* report = new DailyReport();
 
@@ -71,8 +73,12 @@ void load_test() {
 }
 
 int main() {
+	Pipeable* p = new Pipeable();
+
+	Sleep(1000);
 	//save_test();
-	load_test();
+	//load_test();
 
-
+	delete p;
+	wcout << "end" << endl;
 }
