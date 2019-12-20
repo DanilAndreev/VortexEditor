@@ -34,11 +34,8 @@
     <Filter Include="Файлы заголовков\Root\Exceptions">
       <UniqueIdentifier>{91be2bb6-9c83-418d-ab26-ad93c32bbcf4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\PipeDispatcher">
+    <Filter Include="Файлы заголовков\TurboPipes">
       <UniqueIdentifier>{1fedd229-5123-42f5-b35b-2f9379741638}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\Threadable">
-      <UniqueIdentifier>{552def52-d2b7-4ee0-aa19-3b124b33795c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -77,15 +74,6 @@
     </ClCompile>
     <ClCompile Include="FWString.cpp">
       <Filter>Файлы ресурсов\Lists</Filter>
-    </ClCompile>
-    <ClCompile Include="PipeDispatcher.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Pipeable.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="Threadable.cpp">
-      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -170,21 +158,30 @@
     <ClInclude Include="MagicJSON\x64\include\MagicJSON.h">
       <Filter>Файлы заголовков\MagicJSON</Filter>
     </ClInclude>
-    <ClInclude Include="PipeDispatcher.h">
-      <Filter>Файлы заголовков\PipeDispatcher</Filter>
-    </ClInclude>
-    <ClInclude Include="Threadable.h">
-      <Filter>Файлы заголовков\Threadable</Filter>
-    </ClInclude>
-    <ClInclude Include="Pipeable.h">
-      <Filter>Файлы заголовков\PipeDispatcher</Filter>
-    </ClInclude>
     <ClInclude Include="PipesExceptions.h">
       <Filter>Файлы заголовков\Root\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="TurboPipes\x64\include\TurboPipes.h">
+      <Filter>Файлы заголовков\TurboPipes</Filter>
+    </ClInclude>
+    <ClInclude Include="TurboPipes\x64\include\Pipeable.h">
+      <Filter>Файлы заголовков\TurboPipes</Filter>
+    </ClInclude>
+    <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h">
+      <Filter>Файлы заголовков\TurboPipes</Filter>
+    </ClInclude>
+    <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h">
+      <Filter>Файлы заголовков\TurboPipes</Filter>
+    </ClInclude>
+    <ClInclude Include="TurboPipes\x64\include\Threadable.h">
+      <Filter>Файлы заголовков\TurboPipes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="MagicJSON\x64\MagicJSON.lib">
+      <Filter>Файлы ресурсов</Filter>
+    </Library>
+    <Library Include="TurboPipes\x64\TurboPipes.lib">
       <Filter>Файлы ресурсов</Filter>
     </Library>
   </ItemGroup>

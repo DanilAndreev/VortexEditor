@@ -76,6 +76,7 @@ int main() {
 	TPipeable* p = new TPipeable();
 	wcout << "waiting for client connection" << endl;
 	PipeDispatcher dsp(L"\\\\.\\pipe\\$MyPipe$", true, p);
+	wcout << "connected____" << endl;
 
 	WaitForSingleObject(dsp.getThreadHandle(), INFINITE);
 	//save_test();

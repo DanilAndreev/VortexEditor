@@ -18,66 +18,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Abonent.cpp" />
-    <ClCompile Include="DailyReport.cpp" />
-    <ClCompile Include="Date1.cpp" />
-    <ClCompile Include="Date2.cpp" />
-    <ClCompile Include="Disk.cpp" />
-    <ClCompile Include="FVector.cpp" />
-    <ClCompile Include="FWString.cpp" />
-    <ClCompile Include="Nameable.cpp" />
-    <ClCompile Include="OOP_Course.cpp" />
-    <ClCompile Include="Operation.cpp" />
-    <ClCompile Include="Returnable.cpp" />
-    <ClCompile Include="Studio.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Abonent.h" />
-    <ClInclude Include="DailyReport.h" />
-    <ClInclude Include="DailyReportException.h" />
-    <ClInclude Include="Date1.h" />
-    <ClInclude Include="Date2.h" />
-    <ClInclude Include="Disk.h" />
-    <ClInclude Include="Exception.h" />
-    <ClInclude Include="Fileable.h" />
-    <ClInclude Include="FVector.h" />
-    <ClInclude Include="FWString.h" />
-    <ClInclude Include="HashSet.h" />
-    <ClInclude Include="Loadable.h" />
-    <ClInclude Include="MagicJSON\x64\include\JsonArray.h" />
-    <ClInclude Include="MagicJSON\x64\include\JsonExceptions.h" />
-    <ClInclude Include="MagicJSON\x64\include\JsonItem.h" />
-    <ClInclude Include="MagicJSON\x64\include\JsonObject.h" />
-    <ClInclude Include="MagicJSON\x64\include\JsonString.h" />
-    <ClInclude Include="MagicJSON\x64\include\JsonTokenizer.h" />
-    <ClInclude Include="MagicJSON\x64\include\MagicJSON.h" />
-    <ClInclude Include="Nameable.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="Operation.h" />
-    <ClInclude Include="PipesExceptions.h" />
-    <ClInclude Include="Returnable.h" />
-    <ClInclude Include="Saveable.h" />
-    <ClInclude Include="Serializeable.h" />
-    <ClInclude Include="SerializeExceptions.h" />
-    <ClInclude Include="Studio.h" />
-    <ClInclude Include="TurboPipes\x64\include\Pipeable.h" />
-    <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h" />
-    <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h" />
-    <ClInclude Include="TurboPipes\x64\include\Threadable.h" />
-    <ClInclude Include="TurboPipes\x64\include\TurboPipes.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="MagicJSON\x64\MagicJSON.lib" />
-    <Library Include="TurboPipes\x64\TurboPipes.lib" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{452A25E7-5A61-480C-A600-A60641A485AB}</ProjectGuid>
+    <ProjectGuid>{2C14DDB0-4CB6-4F87-9468-68B6E5FD5B87}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>OOPCoursev001</RootNamespace>
+    <RootNamespace>OOPCoursev001consolefront</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>OOP_Course_v001_back</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -124,10 +70,10 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -136,21 +82,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
-    </ClCompile>
-    <Link>
-      <SubSystem>Console</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>
@@ -166,7 +97,22 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>.\TurboPipes\x64;.\MagicJSON\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>MagicJSON.lib;TurboPipes.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AddModuleNamesToAssembly>TurboPipes.lib;MagicJSON.lib;%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -207,6 +153,17 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="OOP_Course_v001_console_front.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="MagicJSON\x64\MagicJSON.lib" />
+    <Library Include="TurboPipes\x64\TurboPipes.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="TestPipeable.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

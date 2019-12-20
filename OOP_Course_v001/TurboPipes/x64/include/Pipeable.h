@@ -1,9 +1,8 @@
 #pragma once
+/* Copyright 2019 Andrieiev Danil */
 #include <queue>
 #include <string>
 #include "Threadable.h"
-
-#include <iostream>
 
 using namespace std;
 

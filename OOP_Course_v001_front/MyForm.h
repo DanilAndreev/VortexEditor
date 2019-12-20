@@ -1,4 +1,7 @@
 #pragma once
+#include "TurboPipes.h"
+
+extern PipeDispatcher* dispatcher;
 
 namespace OOPCoursev001front {
 
@@ -34,6 +37,8 @@ namespace OOPCoursev001front {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ button1;
+	protected:
 
 	protected:
 
@@ -50,13 +55,25 @@ namespace OOPCoursev001front {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(359, 207);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(257, 116);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::Button1_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1264, 681);
+			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
 			this->Text = L"Fimls redactor";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -67,6 +84,9 @@ namespace OOPCoursev001front {
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void ToolStripContainer1_ContentPanel_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void Button1_Click(System::Object^ sender, System::EventArgs^ e) { 
+		
 	}
 	};
 }
