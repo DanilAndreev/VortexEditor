@@ -163,6 +163,13 @@
   <ItemGroup>
     <ClInclude Include="Object.h" />
     <ClInclude Include="TestPipeable.h" />
+    <ClInclude Include="TurboPipes\x64\include\Pipeable.h" />
+    <ClInclude Include="TurboPipes\x64\include\PipeableString.h" />
+    <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h" />
+    <ClInclude Include="TurboPipes\x64\include\PipeDispatcherString.h" />
+    <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h" />
+    <ClInclude Include="TurboPipes\x64\include\Threadable.h" />
+    <ClInclude Include="TurboPipes\x64\include\TurboPipes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

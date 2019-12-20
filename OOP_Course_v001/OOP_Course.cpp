@@ -3,7 +3,7 @@
 #include "DailyReport.h"
 #include "MagicJSON.h"
 
-#include "PipeDispatcher.h"
+#include "TPipeableString.h"
 
 void save_test() {
 	DailyReport* report = new DailyReport();
@@ -73,9 +73,9 @@ void load_test() {
 }
 
 int main() {
-	TPipeable* p = new TPipeable();
+	TPipeableString* p = new TPipeableString();
 	wcout << "waiting for client connection" << endl;
-	PipeDispatcher dsp(L"\\\\.\\pipe\\$MyPipe$", true, p);
+	TurboPipes::PipeDispatcherString dsp(L"\\\\.\\pipe\\$MyPipe$", true, p);
 	wcout << "connected____" << endl;
 
 	WaitForSingleObject(dsp.getThreadHandle(), INFINITE);

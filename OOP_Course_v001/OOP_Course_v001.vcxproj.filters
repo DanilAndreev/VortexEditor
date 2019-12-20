@@ -161,19 +161,28 @@
     <ClInclude Include="PipesExceptions.h">
       <Filter>Файлы заголовков\Root\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\TurboPipes.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+    <ClInclude Include="TPipeableString.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\Pipeable.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
-    </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h">
+    <ClInclude Include="TurboPipes\x64\include\PipeDispatcherString.h">
       <Filter>Файлы заголовков\TurboPipes</Filter>
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h">
       <Filter>Файлы заголовков\TurboPipes</Filter>
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\Threadable.h">
+      <Filter>Файлы заголовков\TurboPipes</Filter>
+    </ClInclude>
+    <ClInclude Include="TurboPipes\x64\include\TurboPipes.h">
+      <Filter>Файлы заголовков\TurboPipes</Filter>
+    </ClInclude>
+    <ClInclude Include="TurboPipes\x64\include\Pipeable.h">
+      <Filter>Файлы заголовков\TurboPipes</Filter>
+    </ClInclude>
+    <ClInclude Include="TurboPipes\x64\include\PipeableString.h">
+      <Filter>Файлы заголовков\TurboPipes</Filter>
+    </ClInclude>
+    <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h">
       <Filter>Файлы заголовков\TurboPipes</Filter>
     </ClInclude>
   </ItemGroup>
