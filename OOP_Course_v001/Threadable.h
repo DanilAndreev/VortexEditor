@@ -12,6 +12,7 @@ public:
 	void startThread();
 	void stopThread();
 	HANDLE getThreadHandle();
+	bool isRunning();
 	virtual void threadFunction() = 0;
 private:
 	static unsigned int _stdcall recieveMessageThread(void* pthis);

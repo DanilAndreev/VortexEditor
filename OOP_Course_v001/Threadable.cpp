@@ -23,6 +23,10 @@ HANDLE Threadable::getThreadHandle() {
 	return this->threadHandle;
 }
 
+bool Threadable::isRunning() {
+	return this->running;
+}
+
 unsigned int _stdcall Threadable::recieveMessageThread(void* pthis) {
 	Threadable* pThreadable = static_cast<Threadable*>(pthis);
 	pThreadable->threadFunction();

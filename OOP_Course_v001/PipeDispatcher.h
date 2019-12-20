@@ -2,9 +2,18 @@
 #include <windows.h>
 #include <string>
 #include "Pipeable.h"
+#include "Threadable.h"
+#include "PipesExceptions.h"
+#include <codecvt>
+
+
+#include <iostream>
+
 using namespace std;
 
-class PipeDispatcher {
+class PipeDispatcher : public Threadable{
+private:
+	static const DWORD TIMEOUT = 5000;
 private:
 	HANDLE hNamedPipe;
 	DWORD cbWritten;
@@ -16,10 +25,18 @@ private:
 protected:
 	Pipeable* object;
 public:
-	PipeDispatcher(wstring szPipeName, bool is_server);
+	PipeDispatcher(wstring szPipeName, bool is_server, Pipeable* object);
 	~PipeDispatcher();
 	void throwMessage(wstring message);
+protected:
 	wstring catchMessage();
-
+	void messagesHandler();
+	void threadFunction() override;
 };
 
+class TPipeable : public Pipeable {
+	void handleMessage(wstring& message) override {
+		wcout << "----------------------caugth message: " << message << endl;
+		this->dispatcher->throwMessage(message);
+	}
+};
