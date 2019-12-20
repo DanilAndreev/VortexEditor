@@ -29,8 +29,11 @@
     <ClCompile Include="Nameable.cpp" />
     <ClCompile Include="OOP_Course.cpp" />
     <ClCompile Include="Operation.cpp" />
+    <ClCompile Include="Pipeable.cpp" />
+    <ClCompile Include="PipeDispatcher.cpp" />
     <ClCompile Include="Returnable.cpp" />
     <ClCompile Include="Studio.cpp" />
+    <ClCompile Include="Threadable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abonent.h" />
@@ -55,11 +58,15 @@
     <ClInclude Include="Nameable.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Operation.h" />
+    <ClInclude Include="Pipeable.h" />
+    <ClInclude Include="PipeDispatcher.h" />
+    <ClInclude Include="PipesExceptions.h" />
     <ClInclude Include="Returnable.h" />
     <ClInclude Include="Saveable.h" />
     <ClInclude Include="Serializeable.h" />
     <ClInclude Include="SerializeExceptions.h" />
     <ClInclude Include="Studio.h" />
+    <ClInclude Include="Threadable.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="MagicJSON\x64\MagicJSON.lib" />
