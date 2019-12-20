@@ -1,4 +1,5 @@
 #pragma once
+/* Copyright 2019 Andrieiev Danil */
 #include <windows.h>
 #include <process.h>
 
