@@ -8,7 +8,7 @@ using namespace std;
 int main() {
 	TestPipeable p;
 	wcout << "Client connecting to server" << endl;
-	PipeDispatcher dispatcher(L"\\\\.\\pipe\\$MyPipe$", false, &p);
+	TurboPipes::PipeDispatcherString dispatcher(L"\\\\.\\pipe\\$MyPipe$", false, &p);
 	wcout << "connected" << endl;
 
 	while (true) {

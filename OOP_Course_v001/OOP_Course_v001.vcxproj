@@ -61,8 +61,11 @@
     <ClInclude Include="Serializeable.h" />
     <ClInclude Include="SerializeExceptions.h" />
     <ClInclude Include="Studio.h" />
+    <ClInclude Include="TPipeableString.h" />
     <ClInclude Include="TurboPipes\x64\include\Pipeable.h" />
+    <ClInclude Include="TurboPipes\x64\include\PipeableString.h" />
     <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h" />
+    <ClInclude Include="TurboPipes\x64\include\PipeDispatcherString.h" />
     <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h" />
     <ClInclude Include="TurboPipes\x64\include\Threadable.h" />
     <ClInclude Include="TurboPipes\x64\include\TurboPipes.h" />

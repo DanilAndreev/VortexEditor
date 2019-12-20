@@ -1,7 +1,12 @@
 #pragma once
 #include "TurboPipes.h"
 
-class TestPipeable : public Pipeable {
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class TestPipeable : public TurboPipes::PipeableString {
 public:
 	TestPipeable() {}
 	~TestPipeable() {}
