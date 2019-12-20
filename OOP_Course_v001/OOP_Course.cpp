@@ -3,7 +3,7 @@
 #include "DailyReport.h"
 #include "MagicJSON.h"
 
-#include "Pipeable.h"
+#include "PipeDispatcher.h"
 
 void save_test() {
 	DailyReport* report = new DailyReport();
@@ -73,9 +73,11 @@ void load_test() {
 }
 
 int main() {
-	Pipeable* p = new Pipeable();
+	TPipeable* p = new TPipeable();
+	wcout << "waiting for client connection" << endl;
+	PipeDispatcher dsp(L"\\\\.\\pipe\\$MyPipe$", true, p);
 
-	Sleep(1000);
+	WaitForSingleObject(dsp.getThreadHandle(), INFINITE);
 	//save_test();
 	//load_test();
 
