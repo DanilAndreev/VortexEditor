@@ -3,7 +3,7 @@
 #include "MenuCommand.h"
 
 
-namespace WonderMenu {
+namespace WMenu {
 	class MenuCommandEmpty : public MenuCommand {
 	public:
 		MenuCommandEmpty(wstring key) : MenuCommand(key, L"") {}

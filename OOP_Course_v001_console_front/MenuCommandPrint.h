@@ -1,13 +1,16 @@
 #pragma once
-#include "MenuCommand.h"
+#include "WMenu.h"
+#include "TurboPipes.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-class MenuCommandPrint : public WonderMenu::MenuCommand {
+class MenuCommandPrint : public WMenu::MenuCommand {
+protected:
+	TurboPipes::PipeDispatcherString* dispatcher;
 public:
-	MenuCommandPrint(wstring key, wstring description);
+	MenuCommandPrint(TurboPipes::PipeDispatcherString* dispatcher);
 	~MenuCommandPrint();
 public:
 	void handleCommnad(wstring inputData) override;

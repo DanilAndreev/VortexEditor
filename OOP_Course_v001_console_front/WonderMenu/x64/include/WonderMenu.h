@@ -7,7 +7,7 @@
 #include "WonderMenuExceptions.h"
 
 
-namespace WonderMenu {
+namespace WMenu {
 	using namespace std;
 
 	typedef set<MenuCommand*, bool(*)(MenuCommand* less, MenuCommand* higher)> MSet;

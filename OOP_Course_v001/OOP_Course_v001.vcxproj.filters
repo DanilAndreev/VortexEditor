@@ -28,14 +28,14 @@
     <Filter Include="Файлы ресурсов\Lists">
       <UniqueIdentifier>{c74759ae-404b-43e8-b435-a03e55583bbd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\MagicJSON">
-      <UniqueIdentifier>{f8a9fbee-51aa-4246-abed-b231aaee2553}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\Root\Exceptions">
       <UniqueIdentifier>{91be2bb6-9c83-418d-ab26-ad93c32bbcf4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\TurboPipes">
+    <Filter Include="Файлы заголовков\TurboPipes_lib_headers">
       <UniqueIdentifier>{1fedd229-5123-42f5-b35b-2f9379741638}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\MagicJSON_lib_headers">
+      <UniqueIdentifier>{f8a9fbee-51aa-4246-abed-b231aaee2553}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -138,25 +138,25 @@
       <Filter>Файлы заголовков\Root\Exceptions</Filter>
     </ClInclude>
     <ClInclude Include="MagicJSON\x64\include\JsonArray.h">
-      <Filter>Файлы заголовков\MagicJSON</Filter>
+      <Filter>Файлы заголовков\MagicJSON_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="MagicJSON\x64\include\JsonExceptions.h">
-      <Filter>Файлы заголовков\MagicJSON</Filter>
+      <Filter>Файлы заголовков\MagicJSON_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="MagicJSON\x64\include\JsonItem.h">
-      <Filter>Файлы заголовков\MagicJSON</Filter>
+      <Filter>Файлы заголовков\MagicJSON_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="MagicJSON\x64\include\JsonObject.h">
-      <Filter>Файлы заголовков\MagicJSON</Filter>
+      <Filter>Файлы заголовков\MagicJSON_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="MagicJSON\x64\include\JsonString.h">
-      <Filter>Файлы заголовков\MagicJSON</Filter>
+      <Filter>Файлы заголовков\MagicJSON_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="MagicJSON\x64\include\JsonTokenizer.h">
-      <Filter>Файлы заголовков\MagicJSON</Filter>
+      <Filter>Файлы заголовков\MagicJSON_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="MagicJSON\x64\include\MagicJSON.h">
-      <Filter>Файлы заголовков\MagicJSON</Filter>
+      <Filter>Файлы заголовков\MagicJSON_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="PipesExceptions.h">
       <Filter>Файлы заголовков\Root\Exceptions</Filter>
@@ -165,25 +165,25 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+      <Filter>Файлы заголовков\TurboPipes_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\Threadable.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+      <Filter>Файлы заголовков\TurboPipes_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\TurboPipes.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+      <Filter>Файлы заголовков\TurboPipes_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\Pipeable.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+      <Filter>Файлы заголовков\TurboPipes_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\PipeableString.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+      <Filter>Файлы заголовков\TurboPipes_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+      <Filter>Файлы заголовков\TurboPipes_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\PipeDispatcherString.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+      <Filter>Файлы заголовков\TurboPipes_lib_headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
