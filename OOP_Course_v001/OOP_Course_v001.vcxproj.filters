@@ -164,9 +164,6 @@
     <ClInclude Include="TPipeableString.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\PipeDispatcherString.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
-    </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h">
       <Filter>Файлы заголовков\TurboPipes</Filter>
     </ClInclude>
@@ -183,6 +180,9 @@
       <Filter>Файлы заголовков\TurboPipes</Filter>
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h">
+      <Filter>Файлы заголовков\TurboPipes</Filter>
+    </ClInclude>
+    <ClInclude Include="TurboPipes\x64\include\PipeDispatcherString.h">
       <Filter>Файлы заголовков\TurboPipes</Filter>
     </ClInclude>
   </ItemGroup>
