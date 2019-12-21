@@ -3,14 +3,10 @@
 #include <codecvt>
 
 
-NetworkMessagesHandler::NetworkMessagesHandler()
-{
-}
+NetworkMessagesHandler::NetworkMessagesHandler() {}
 
 
-NetworkMessagesHandler::~NetworkMessagesHandler()
-{
-}
+NetworkMessagesHandler::~NetworkMessagesHandler() {}
 
 void NetworkMessagesHandler::handleMessage(wstring& message) {
 	try {
@@ -18,6 +14,11 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 		MagicJSON::JsonObject json_message(message);
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_SEND_DATA) == 0) {
 			this->handleSendAllDataMessage(json_message);
+		}
+		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_SUCCESS) == 0) {
+			if (json_message.getString(SUCCESS_TYPE_KEY).compare(SUCCESS_READING_FILE) == 0) {
+				wcout << "Successfuly read file" << endl;
+			}
 		}
 	}
 	catch (MagicJSON::JsonException e){

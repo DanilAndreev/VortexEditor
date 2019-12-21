@@ -155,6 +155,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuCommandFind.cpp" />
+    <ClCompile Include="MenuCommandLoad.cpp" />
     <ClCompile Include="MenuCommandPrint.cpp" />
     <ClCompile Include="NetworkMessagesHandler.cpp" />
     <ClCompile Include="OOP_Course_v001_console_front.cpp" />
@@ -182,6 +184,8 @@
     <ClInclude Include="ATable\x64\include\TableExceptions.h" />
     <ClInclude Include="ATable\x64\include\TableObject.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuCommandFind.h" />
+    <ClInclude Include="MenuCommandLoad.h" />
     <ClInclude Include="MenuCommandPrint.h" />
     <ClInclude Include="NetworkMessageKeys.h" />
     <ClInclude Include="NetworkMessagesHandler.h" />

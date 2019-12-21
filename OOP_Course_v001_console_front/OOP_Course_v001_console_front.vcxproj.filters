@@ -45,6 +45,12 @@
     <ClCompile Include="NetworkMessagesHandler.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="MenuCommandFind.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandLoad.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="TurboPipes\x64\TurboPipes.lib">
@@ -135,6 +141,12 @@
     </ClInclude>
     <ClInclude Include="NetworkMessageKeys.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandFind.h">
+      <Filter>Файлы заголовков\MyWonderMenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandLoad.h">
+      <Filter>Файлы заголовков\MyWonderMenuCommands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

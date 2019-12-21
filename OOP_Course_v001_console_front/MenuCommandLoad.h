@@ -6,14 +6,13 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
 
-class MenuCommandPrint : public WMenu::MenuCommand {
+class MenuCommandLoad : public WMenu::MenuCommand {
 protected:
 	TurboPipes::PipeDispatcherString* dispatcher;
 public:
-	MenuCommandPrint(TurboPipes::PipeDispatcherString* dispatcher);
-	~MenuCommandPrint();
+	MenuCommandLoad(TurboPipes::PipeDispatcherString* dispatcher);
+	~MenuCommandLoad();
 public:
 	void handleCommnad(wstring inputData) override;
 };

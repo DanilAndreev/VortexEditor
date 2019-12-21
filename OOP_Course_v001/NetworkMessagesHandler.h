@@ -17,6 +17,8 @@ public:
 	void handleMessage(wstring& message) override;
 protected:
 	void handleGetAllMessage();
+	void handleGetFilteredMessage(MagicJSON::JsonObject message);
+	void handleLoadTextFileMessage(MagicJSON::JsonObject message);
 	static MagicJSON::JsonObject buildOperationJson(Operation* operation);
 };
 
