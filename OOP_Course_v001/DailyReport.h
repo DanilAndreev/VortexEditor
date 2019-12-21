@@ -14,8 +14,10 @@ public:
 	DailyReport(const DailyReport& reference);
 	void addReturn(Operation* return_);
 	Operation* getReturn(const size_t index) const;
+	size_t getReturnsSize();
 	void addExtradition(Operation* extradition);
-	Operation* getExtradiotion(const size_t index) const;
+	Operation* getExtradition(const size_t index) const;
+	size_t getExtraditionsSize();
 public:
 	void save(ofstream& stream) const override;
 	void load(ifstream& stream) override;

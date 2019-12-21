@@ -75,6 +75,9 @@
     <ClCompile Include="FWString.cpp">
       <Filter>Файлы ресурсов\Lists</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkMessagesHandler.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Loadable.h">
@@ -161,9 +164,6 @@
     <ClInclude Include="PipesExceptions.h">
       <Filter>Файлы заголовков\Root\Exceptions</Filter>
     </ClInclude>
-    <ClInclude Include="TPipeableString.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h">
       <Filter>Файлы заголовков\TurboPipes_lib_headers</Filter>
     </ClInclude>
@@ -184,6 +184,12 @@
     </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\PipeDispatcherString.h">
       <Filter>Файлы заголовков\TurboPipes_lib_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkMessageKeys.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkMessagesHandler.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

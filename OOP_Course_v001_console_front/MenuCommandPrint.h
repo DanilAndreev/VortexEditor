@@ -1,6 +1,7 @@
 #pragma once
 #include "WMenu.h"
 #include "TurboPipes.h"
+#include "MagicJSON.h"
 #include <iostream>
 #include <string>
 

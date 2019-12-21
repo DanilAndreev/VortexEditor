@@ -11,5 +11,10 @@ MenuCommandPrint::MenuCommandPrint(TurboPipes::PipeDispatcherString* dispatcher)
 MenuCommandPrint::~MenuCommandPrint() {}
 
 void MenuCommandPrint::handleCommnad(wstring inputData) {
-	this->dispatcher->throwMessage(inputData);
+	MagicJSON::JsonObject json;
+	
+	json.addString(L"command_type", L"get_data");
+	json.addString(L"data_type", L"all");
+	wstring message = json.toString();
+	this->dispatcher->throwMessage(message);
 }

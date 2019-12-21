@@ -7,7 +7,7 @@ class Abonent : public Date1, public Nameable{
 protected:
 	FWString surename;
 public:
-	Abonent(const FWString firstname, const FWString surname, const short year, const short month) : Date1(year, month), Nameable(firstname), surename(surename) {}
+	Abonent(const FWString firstname, const FWString surename, const short year, const short month) : Date1(year, month), Nameable(firstname), surename(surename) {}
 	Abonent() : Date1(), Nameable(), surename(L"") {}
 	Abonent(const Abonent& reference);
 	~Abonent() {}
