@@ -1,12 +1,12 @@
 #pragma once
-#include "WonderMenu.h"
+#include "WMenu.h"
 #include "ATable.h"
 #include <iostream>
 #include <string>
 
 using namespace std;
 
-class Menu : public WonderMenu::WonderMenu {
+class Menu : public WMenu::WonderMenu {
 public:
 	Menu();
 	~Menu();

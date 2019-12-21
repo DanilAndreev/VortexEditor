@@ -4,7 +4,7 @@
 #include "WonderMenuExceptions.h"
 
 
-namespace WonderMenu {
+namespace WMenu {
 	using namespace std;
 
 	class MenuCommand {
@@ -15,6 +15,7 @@ namespace WonderMenu {
 		MenuCommand(wstring key, wstring description);
 		virtual ~MenuCommand();
 		wstring getKey();
+		wstring getDescription();
 	public:
 		virtual void handleCommnad(wstring inputData) = 0;
 	};

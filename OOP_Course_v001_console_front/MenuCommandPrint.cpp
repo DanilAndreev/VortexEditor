@@ -1,13 +1,15 @@
 #include "MenuCommandPrint.h"
 
 
-MenuCommandPrint::MenuCommandPrint(wstring key, wstring description) : WonderMenu::MenuCommand(key, description) {
+MenuCommandPrint::MenuCommandPrint(TurboPipes::PipeDispatcherString* dispatcher) : 
+	WMenu::MenuCommand(L"print", L"Prints a table of operations"), dispatcher(dispatcher) {
+	if (!this->dispatcher) {
+		throw exception();
+	}
 }
 
-MenuCommandPrint::~MenuCommandPrint()
-{
-}
+MenuCommandPrint::~MenuCommandPrint() {}
 
 void MenuCommandPrint::handleCommnad(wstring inputData) {
-	wcout << "command: " << inputData;
+	this->dispatcher->throwMessage(inputData);
 }

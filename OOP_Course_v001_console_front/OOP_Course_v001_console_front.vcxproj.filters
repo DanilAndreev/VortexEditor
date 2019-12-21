@@ -13,20 +13,20 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Файлы заголовков\MagicJSON">
-      <UniqueIdentifier>{8a9d7847-044e-4bf5-b2e2-dd0e0d64b4c4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\TurboPipes">
-      <UniqueIdentifier>{392eddff-36b8-4982-8138-c2952d648339}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\ATable">
       <UniqueIdentifier>{a1a9754f-8575-4e0d-b5d5-6ea476cd33bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\WonderMenu">
-      <UniqueIdentifier>{0e599989-653e-4b00-adf5-03f111c37461}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\MyWonderMenuCommands">
       <UniqueIdentifier>{7109154d-7b1b-451e-9870-4184abc39176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\WonderMenu_lib_headers">
+      <UniqueIdentifier>{0e599989-653e-4b00-adf5-03f111c37461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\TurboPipes_lib_headers">
+      <UniqueIdentifier>{392eddff-36b8-4982-8138-c2952d648339}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\MagicJSON_lib_headers">
+      <UniqueIdentifier>{8a9d7847-044e-4bf5-b2e2-dd0e0d64b4c4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +37,9 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="Menu.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkMessagesHandler.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -103,26 +106,29 @@
     <ClInclude Include="ATable\x64\include\Keyable.h">
       <Filter>Файлы заголовков\ATable</Filter>
     </ClInclude>
-    <ClInclude Include="MenuCommandPrint.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="WonderMenu\x64\include\WonderMenu.h">
-      <Filter>Файлы заголовков\WonderMenu</Filter>
+      <Filter>Файлы заголовков\WonderMenu_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="WonderMenu\x64\include\WonderMenuExceptions.h">
-      <Filter>Файлы заголовков\WonderMenu</Filter>
+      <Filter>Файлы заголовков\WonderMenu_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="WonderMenu\x64\include\MenuCommand.h">
-      <Filter>Файлы заголовков\WonderMenu</Filter>
+      <Filter>Файлы заголовков\WonderMenu_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="WonderMenu\x64\include\MenuCommandEmpty.h">
-      <Filter>Файлы заголовков\WonderMenu</Filter>
+      <Filter>Файлы заголовков\WonderMenu_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="WonderMenu\x64\include\WMenu.h">
-      <Filter>Файлы заголовков\WonderMenu</Filter>
+      <Filter>Файлы заголовков\WonderMenu_lib_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Файлы заголовков\MyWonderMenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandPrint.h">
+      <Filter>Файлы заголовков\MyWonderMenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkMessagesHandler.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
