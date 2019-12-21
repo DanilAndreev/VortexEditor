@@ -10,11 +10,11 @@ void save_test() {
 
 	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
 		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Hike", L"Hermes", 1992, 2),
 		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Bike", L"Hermes", 1992, 2),
 		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Lol", L"Hermes", 1992, 2),
 		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
 
 
@@ -77,11 +77,11 @@ int main() {
 
 	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
 		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Bike", L"Hermes", 1993, 2),
 		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Hike", L"Hermes", 1994, 2),
 		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Like", L"Hermes", 1992, 2),
 		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
 
 
