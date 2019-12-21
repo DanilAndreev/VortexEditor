@@ -1,4 +1,5 @@
 #include "NetworkMessagesHandler.h"
+#include "base_64.h"
 #include <locale>
 #include <codecvt>
 #include <fstream>
@@ -7,6 +8,7 @@ NetworkMessagesHandler::NetworkMessagesHandler() {}
 
 
 NetworkMessagesHandler::~NetworkMessagesHandler() {}
+
 
 void NetworkMessagesHandler::handleMessage(wstring& message) {
 	try {
@@ -25,7 +27,7 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 				this->handleSaveTetMessage(json_message);
 			}
 			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_BINARY) == 0) {
-				wcout << "Save binary:: TODO" << endl;
+				this->handleBinaryTetMessage(json_message);
 			}
 		}
 	}
@@ -38,6 +40,7 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 		this->dispatcher->throwMessage(answer_message);
 	}
 }
+
 
 void NetworkMessagesHandler::handleSendAllDataMessage(MagicJSON::JsonObject message) {
 	ATable::Table* table_extraditions = constructTableForOperations("extraditions");
@@ -62,12 +65,13 @@ void NetworkMessagesHandler::handleSendAllDataMessage(MagicJSON::JsonObject mess
 	delete table_returns;
 }
 
+
 void NetworkMessagesHandler::handleSaveTetMessage(MagicJSON::JsonObject message) {
 	MagicJSON::JsonObject save_data = message.getObject(VALUE_KEY);
 
 	try {
 		wofstream file;
-		file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+		file.exceptions(std::wofstream::failbit | std::wofstream::badbit);
 		file.open(message.getString(PATH_KEY));
 		file << save_data.toString();
 	}
@@ -77,6 +81,30 @@ void NetworkMessagesHandler::handleSaveTetMessage(MagicJSON::JsonObject message)
 	}
 	wcout << "successfully saved file" << endl;
 }
+
+
+void NetworkMessagesHandler::handleBinaryTetMessage(MagicJSON::JsonObject message) {
+	wstring_convert<codecvt_utf8_utf16<wchar_t>> converter;
+	string base_string = base64_decode(converter.to_bytes(message.getString(VALUE_KEY)));
+	size_t size = message.getInteger(SIZE_KEY);
+	
+
+	ofstream file;
+	try {
+		file.exceptions(std::ofstream::failbit | std::ofstream::badbit);
+		file.open(message.getString(PATH_KEY), ios::binary);	
+	}
+	catch (ofstream::failure e) {
+		wcout << "Error: unable to save in file: " << message.getString(PATH_KEY) << endl;
+		return;
+	}
+	byte* buffer = new byte[size];
+	memcpy(buffer, base_string.c_str(), size*sizeof(byte));
+	file.write((char*)buffer, size*sizeof(byte));
+	delete[] buffer;
+	wcout << "successfully saved file" << endl;
+}
+
 
 void NetworkMessagesHandler::addOperationToTable(MagicJSON::JsonObject operation, ATable::Table* table) {
 	wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
@@ -103,6 +131,7 @@ void NetworkMessagesHandler::addOperationToTable(MagicJSON::JsonObject operation
 
 
 }
+
 
 ATable::Table* NetworkMessagesHandler::constructTableForOperations(string name) {
 	ATable::Table* table = new ATable::Table(ATable::DefaultAppearance(), name);

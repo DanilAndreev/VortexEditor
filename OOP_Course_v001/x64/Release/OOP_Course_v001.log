@@ -1,0 +1,26 @@
+﻿  Abonent.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\Serializeable.h(2): fatal error C1083: Не удается открыть файл включение: MagicJSON.h: No such file or directory,
+  base_64.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\base_64.cpp(84): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Projects\OOP_Course\OOP_Course_v001\base_64.cpp(95): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
+D:\Projects\OOP_Course\OOP_Course_v001\base_64.cpp(112): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
+  DailyReport.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\Serializeable.h(2): fatal error C1083: Не удается открыть файл включение: MagicJSON.h: No such file or directory,
+  Date1.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\Serializeable.h(2): fatal error C1083: Не удается открыть файл включение: MagicJSON.h: No such file or directory,
+  Date2.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\Serializeable.h(2): fatal error C1083: Не удается открыть файл включение: MagicJSON.h: No such file or directory,
+  Disk.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\Serializeable.h(2): fatal error C1083: Не удается открыть файл включение: MagicJSON.h: No such file or directory,
+  FVector.cpp
+  FWString.cpp
+  NetworkMessagesHandler.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\NetworkMessagesHandler.h(2): fatal error C1083: Не удается открыть файл включение: TurboPipes.h: No such file or directory,
+  Nameable.cpp
+  OOP_Course.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\Serializeable.h(2): fatal error C1083: Не удается открыть файл включение: MagicJSON.h: No such file or directory,
+  Operation.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\Serializeable.h(2): fatal error C1083: Не удается открыть файл включение: MagicJSON.h: No such file or directory,
+  Returnable.cpp
+  Studio.cpp
+D:\Projects\OOP_Course\OOP_Course_v001\Serializeable.h(2): fatal error C1083: Не удается открыть файл включение: MagicJSON.h: No such file or directory,

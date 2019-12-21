@@ -1,5 +1,8 @@
 #include "NetworkMessagesHandler.h"
-
+#include "base_64.h"
+#include <locale>
+#include <codecvt>
+#include <string>
 
 
 NetworkMessagesHandler::NetworkMessagesHandler(DailyReport* dailyReport) : dailyReport(dailyReport) {
@@ -10,6 +13,7 @@ NetworkMessagesHandler::NetworkMessagesHandler(DailyReport* dailyReport) : daily
 
 
 NetworkMessagesHandler::~NetworkMessagesHandler() {}
+
 
 void NetworkMessagesHandler::handleMessage(wstring& message) {
 	try{
@@ -25,7 +29,7 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 		}
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_LOAD) == 0) {
 			if (json_message.getString(LOAD_DATA_KEY).compare(LOAD_BINARY) == 0) {
-				//------------------ TODO
+				this->handleLoadBinaryFileMessage(json_message);
 			}
 			if (json_message.getString(LOAD_DATA_KEY).compare(LOAD_TEXT) == 0) {
 				this->handleLoadTextFileMessage(json_message);
@@ -33,7 +37,7 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 		}
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_SAVE) == 0) {
 			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_BINARY) == 0) {
-				//------------------ TODO
+				this->handleSaveBinaryFileMessage(json_message);
 			}
 			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_TEXT) == 0) {
 				this->handleSaveTextFileMessage(json_message);
@@ -50,6 +54,7 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 	}
 
 }
+
 
 void NetworkMessagesHandler::handleGetAllMessage() {
 	MagicJSON::JsonObject dailyReport_json;
@@ -74,6 +79,7 @@ void NetworkMessagesHandler::handleGetAllMessage() {
 	wstring answer_message = answer_json.toString();
 	this->dispatcher->throwMessage(answer_message);
 }
+
 
 void NetworkMessagesHandler::handleGetFilteredMessage(MagicJSON::JsonObject message) {
 	MagicJSON::JsonObject dailyReport_json;
@@ -117,6 +123,7 @@ void NetworkMessagesHandler::handleGetFilteredMessage(MagicJSON::JsonObject mess
 	this->dispatcher->throwMessage(answer_message);
 }
 
+
 void NetworkMessagesHandler::handleLoadTextFileMessage(MagicJSON::JsonObject message) {
 	try {
 		MagicJSON::JsonObject data = message.getObject(VALUE_KEY);
@@ -137,6 +144,7 @@ void NetworkMessagesHandler::handleLoadTextFileMessage(MagicJSON::JsonObject mes
 	}
 }
 
+
 void NetworkMessagesHandler::handleSaveTextFileMessage(MagicJSON::JsonObject message) {
 	MagicJSON::JsonObject answer_json;
 	answer_json.addString(COMMAND_TYPE_KEY, COMMAND_SAVE);
@@ -146,6 +154,81 @@ void NetworkMessagesHandler::handleSaveTextFileMessage(MagicJSON::JsonObject mes
 	wstring answer_message = answer_json.toString();
 	this->dispatcher->throwMessage(answer_message);
 }
+
+
+void NetworkMessagesHandler::handleLoadBinaryFileMessage(MagicJSON::JsonObject message) {
+	wstring_convert<codecvt_utf8_utf16<wchar_t>> converter;
+	string sbuffer = converter.to_bytes(message.getString(VALUE_KEY));
+	size_t size = message.getInteger(SIZE_KEY);
+	byte* buffer = new byte[size];
+	memcpy(buffer, base64_decode(sbuffer).c_str(), size*sizeof(byte));
+	
+	ofstream out("temp.binary", ios::binary);
+	out.write((char*)buffer, size * sizeof(byte));
+	out.close();
+
+	delete[] buffer;
+	try {
+		ifstream in;
+		in.exceptions(ifstream::failbit | ifstream::badbit);
+		in.open("temp.binary", ios::binary);
+		this->dailyReport->load(in);
+		in.close();
+
+		MagicJSON::JsonObject answer_json;
+		answer_json.addString(COMMAND_TYPE_KEY, COMMAND_SUCCESS);
+		answer_json.addString(SUCCESS_TYPE_KEY, SUCCESS_READING_FILE);
+		wstring answer_message = answer_json.toString();
+		this->dispatcher->throwMessage(answer_message);
+	}
+	catch (WrongInputDataException e) {
+		MagicJSON::JsonObject answer_json;
+		answer_json.addString(COMMAND_TYPE_KEY, COMMAND_ERROR);
+		answer_json.addString(ERROR_TYPE_KEY, ERROR_INVALID_FILE);
+		wstring answer_message = answer_json.toString();
+		this->dispatcher->throwMessage(answer_message);
+	}
+	catch (wifstream::failure e) {
+		wcout << "Error: error trying to access to temp.binary file" << endl;
+	}
+}
+
+void NetworkMessagesHandler::handleSaveBinaryFileMessage(MagicJSON::JsonObject message) {
+	try {
+		ofstream out;
+		out.exceptions(ifstream::failbit | ifstream::badbit);
+		out.open("temp.binary", ios::binary);
+		this->dailyReport->save(out);
+		out.close();
+
+		ifstream in;
+		in.exceptions(ifstream::failbit | ifstream::badbit);
+		in.open("temp.binary", ios::binary);
+
+		in.seekg(0, in.end);
+		size_t size = in.tellg();
+		in.seekg(0, in.beg);
+		byte* buffer = new byte[size];
+		in.read((char*)buffer, size * sizeof(byte));
+		in.close();
+		string base_string = base64_encode(buffer, size * sizeof(byte));
+		delete[] buffer;
+
+		wstring_convert<codecvt_utf8_utf16<wchar_t>> converter;
+		MagicJSON::JsonObject answer_json;
+		answer_json.addString(COMMAND_TYPE_KEY, COMMAND_SAVE);
+		answer_json.addString(SAVE_DATA_KEY, SAVE_BINARY);
+		answer_json.addInteger(SIZE_KEY, size);
+		answer_json.addString(VALUE_KEY, converter.from_bytes(base_string));
+		answer_json.addString(PATH_KEY, message.getString(PATH_KEY));
+		wstring answer_message = answer_json.toString();
+		this->dispatcher->throwMessage(answer_message);
+	}
+	catch (wifstream::failure e) {
+		wcout << "Error: error trying to access to temp.binary file" << endl;
+	}
+}
+
 
 MagicJSON::JsonObject NetworkMessagesHandler::buildOperationJson(Operation* operation) {
 	MagicJSON::JsonObject operation_json;
