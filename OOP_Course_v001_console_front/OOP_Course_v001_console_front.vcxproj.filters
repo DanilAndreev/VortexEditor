@@ -16,20 +16,23 @@
     <Filter Include="Файлы заголовков\MyWonderMenuCommands">
       <UniqueIdentifier>{7109154d-7b1b-451e-9870-4184abc39176}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Libraries">
+    <Filter Include="Файлы ресурсов\Libraries">
       <UniqueIdentifier>{e56e8a3d-b8b8-46d2-8d27-dffa84736633}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Libraries\MagicJSON_lib_headers">
+    <Filter Include="Файлы ресурсов\Libraries\MagicJSON_lib_headers">
       <UniqueIdentifier>{8a9d7847-044e-4bf5-b2e2-dd0e0d64b4c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Libraries\ATable_lib_headers">
+    <Filter Include="Файлы ресурсов\Libraries\ATable_lib_headers">
       <UniqueIdentifier>{a1a9754f-8575-4e0d-b5d5-6ea476cd33bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Libraries\TurboPipes_lib_headers">
+    <Filter Include="Файлы ресурсов\Libraries\TurboPipes_lib_headers">
       <UniqueIdentifier>{392eddff-36b8-4982-8138-c2952d648339}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Libraries\WonderMenu_lib_headers">
+    <Filter Include="Файлы ресурсов\Libraries\WonderMenu_lib_headers">
       <UniqueIdentifier>{0e599989-653e-4b00-adf5-03f111c37461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы ресурсов\base_64">
+      <UniqueIdentifier>{138a0e44-91b8-4a43-8f58-9c3bea44b624}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +57,9 @@
     <ClCompile Include="MenuCommandSave.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="base_64.cpp">
+      <Filter>Файлы ресурсов\base_64</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="TurboPipes\x64\TurboPipes.lib">
@@ -74,64 +80,64 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\Namable.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\NamedColumn.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\SimpleColumn.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\Table.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\TableExceptions.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\TableObject.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\Appearance.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\ATable.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\Cell.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\Column.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\ConstColumn.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\DefaultAppearance.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\DefaultCells.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\IdColumn.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="ATable\x64\include\Keyable.h">
-      <Filter>Файлы заголовков\Libraries\ATable_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="WonderMenu\x64\include\WonderMenu.h">
-      <Filter>Файлы заголовков\Libraries\WonderMenu_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\WonderMenu_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="WonderMenu\x64\include\WonderMenuExceptions.h">
-      <Filter>Файлы заголовков\Libraries\WonderMenu_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\WonderMenu_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="WonderMenu\x64\include\MenuCommand.h">
-      <Filter>Файлы заголовков\Libraries\WonderMenu_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\WonderMenu_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="WonderMenu\x64\include\MenuCommandEmpty.h">
-      <Filter>Файлы заголовков\Libraries\WonderMenu_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\WonderMenu_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="WonderMenu\x64\include\WMenu.h">
-      <Filter>Файлы заголовков\Libraries\WonderMenu_lib_headers</Filter>
+      <Filter>Файлы ресурсов\Libraries\WonderMenu_lib_headers</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Файлы заголовков\MyWonderMenuCommands</Filter>
@@ -153,6 +159,9 @@
     </ClInclude>
     <ClInclude Include="MenuCommandSave.h">
       <Filter>Файлы заголовков\MyWonderMenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="base_64.h">
+      <Filter>Файлы ресурсов\base_64</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Abonent.cpp" />
+    <ClCompile Include="base_64.cpp" />
     <ClCompile Include="DailyReport.cpp" />
     <ClCompile Include="Date1.cpp" />
     <ClCompile Include="Date2.cpp" />
@@ -35,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Abonent.h" />
+    <ClInclude Include="base_64.h" />
     <ClInclude Include="DailyReport.h" />
     <ClInclude Include="DailyReportException.h" />
     <ClInclude Include="Date1.h" />

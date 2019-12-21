@@ -1,0 +1,18 @@
+﻿  base_64.cpp
+D:\Projects\OOP_Course\OOP_Course_v001_console_front\base_64.cpp(84): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\Projects\OOP_Course\OOP_Course_v001_console_front\base_64.cpp(95): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
+D:\Projects\OOP_Course\OOP_Course_v001_console_front\base_64.cpp(112): warning C4267: =: преобразование из "size_t" в "unsigned char"; возможна потеря данных
+  Menu.cpp
+D:\Projects\OOP_Course\OOP_Course_v001_console_front\Menu.h(2): fatal error C1083: Не удается открыть файл включение: WMenu.h: No such file or directory,
+  MenuCommandFind.cpp
+D:\Projects\OOP_Course\OOP_Course_v001_console_front\MenuCommandFind.h(2): fatal error C1083: Не удается открыть файл включение: WMenu.h: No such file or directory,
+  MenuCommandLoad.cpp
+D:\Projects\OOP_Course\OOP_Course_v001_console_front\MenuCommandLoad.h(2): fatal error C1083: Не удается открыть файл включение: WMenu.h: No such file or directory,
+  MenuCommandPrint.cpp
+D:\Projects\OOP_Course\OOP_Course_v001_console_front\MenuCommandPrint.h(2): fatal error C1083: Не удается открыть файл включение: WMenu.h: No such file or directory,
+  MenuCommandSave.cpp
+D:\Projects\OOP_Course\OOP_Course_v001_console_front\MenuCommandSave.h(2): fatal error C1083: Не удается открыть файл включение: WMenu.h: No such file or directory,
+  NetworkMessagesHandler.cpp
+D:\Projects\OOP_Course\OOP_Course_v001_console_front\NetworkMessagesHandler.h(2): fatal error C1083: Не удается открыть файл включение: TurboPipes.h: No such file or directory,
+  OOP_Course_v001_console_front.cpp
+D:\Projects\OOP_Course\OOP_Course_v001_console_front\OOP_Course_v001_console_front.cpp(2): fatal error C1083: Не удается открыть файл включение: MagicJSON.h: No such file or directory,

@@ -11,6 +11,7 @@ const wstring FILTER_VALUE_KEY = L"filter_value";
 const wstring LOAD_DATA_KEY = L"load_data";
 const wstring SAVE_DATA_KEY = L"save_data";
 const wstring VALUE_KEY = L"value";
+const wstring SIZE_KEY = L"size";
 const wstring PATH_KEY = L"path";
 const wstring ERROR_TYPE_KEY = L"error_type";
 const wstring SUCCESS_TYPE_KEY = L"success_type";

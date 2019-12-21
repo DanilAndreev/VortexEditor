@@ -20,6 +20,8 @@ protected:
 	void handleGetFilteredMessage(MagicJSON::JsonObject message);
 	void handleLoadTextFileMessage(MagicJSON::JsonObject message);
 	void handleSaveTextFileMessage(MagicJSON::JsonObject message);
+	void handleLoadBinaryFileMessage(MagicJSON::JsonObject message);
+	void handleSaveBinaryFileMessage(MagicJSON::JsonObject message);
 	static MagicJSON::JsonObject buildOperationJson(Operation* operation);
 };
 
