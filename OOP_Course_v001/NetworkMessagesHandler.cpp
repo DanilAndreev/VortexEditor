@@ -31,6 +31,14 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 				this->handleLoadTextFileMessage(json_message);
 			}
 		}
+		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_SAVE) == 0) {
+			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_BINARY) == 0) {
+				//------------------ TODO
+			}
+			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_TEXT) == 0) {
+				this->handleSaveTextFileMessage(json_message);
+			}
+		}
 	}
 	catch (MagicJSON::JsonException e) {
 		wcout << "Error: recieved error type message" << endl;
@@ -127,6 +135,16 @@ void NetworkMessagesHandler::handleLoadTextFileMessage(MagicJSON::JsonObject mes
 		wstring answer_message = answer_json.toString();
 		this->dispatcher->throwMessage(answer_message);
 	}
+}
+
+void NetworkMessagesHandler::handleSaveTextFileMessage(MagicJSON::JsonObject message) {
+	MagicJSON::JsonObject answer_json;
+	answer_json.addString(COMMAND_TYPE_KEY, COMMAND_SAVE);
+	answer_json.addString(SAVE_DATA_KEY, SAVE_TEXT);
+	answer_json.addString(PATH_KEY, message.getString(PATH_KEY));
+	answer_json.addObject(VALUE_KEY, this->dailyReport->serialize());
+	wstring answer_message = answer_json.toString();
+	this->dispatcher->throwMessage(answer_message);
 }
 
 MagicJSON::JsonObject NetworkMessagesHandler::buildOperationJson(Operation* operation) {

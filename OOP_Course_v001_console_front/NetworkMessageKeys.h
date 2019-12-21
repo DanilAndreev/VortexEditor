@@ -9,7 +9,9 @@ const wstring DATA_TYPE_KEY = L"data_type";
 const wstring FILTER_TYPE_KEY = L"filter_type";
 const wstring FILTER_VALUE_KEY = L"filter_value";
 const wstring LOAD_DATA_KEY = L"load_data";
+const wstring SAVE_DATA_KEY = L"save_data";
 const wstring VALUE_KEY = L"value";
+const wstring PATH_KEY = L"path";
 const wstring ERROR_TYPE_KEY = L"error_type";
 const wstring SUCCESS_TYPE_KEY = L"success_type";
 
@@ -21,6 +23,7 @@ const wstring COMMAND_SEND_DATA = L"send_data";
 const wstring COMMAND_ERROR = L"error";
 const wstring COMMAND_SUCCESS = L"success";
 const wstring COMMAND_LOAD = L"load_data";
+const wstring COMMAND_SAVE = L"save_data";
 
 
 // ERROR VALUES
@@ -31,7 +34,6 @@ const wstring ERROR_INVALID_FILE = L"invalid_file";
 // SUCCESS VALUES
 
 const wstring SUCCESS_READING_FILE = L"success_reading_file";
-
 
 
 // DATA TYPES
@@ -49,4 +51,10 @@ const wstring FILTER_TYPE_INTEGER = L"filter_integer";
 // LOAD TYPES
 
 const wstring LOAD_BINARY = L"load_binary";
-const wstring LOAD_TEXT = L"load_binary";
+const wstring LOAD_TEXT = L"load_text";
+
+
+// SAVE TYPES
+
+const wstring SAVE_BINARY = L"save_binary";
+const wstring SAVE_TEXT = L"save_text";
