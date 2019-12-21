@@ -2,14 +2,16 @@
 
 #include "MagicJSON.h"
 #include "ATable.h"
-#include "WonderMenu.h"
+#include "Menu.h"
+#include "MenuCommandPrint.h"
 
 using namespace std;
 
 int main() {
 	//TestPipeable p;
 
-	WonderMenu menu;
+	Menu menu;
+	menu.addCommand(new MenuCommandPrint(L"print", L"Prints table"));
 	menu.start();
 
 
