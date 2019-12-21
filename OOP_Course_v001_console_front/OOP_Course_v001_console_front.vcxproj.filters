@@ -25,15 +25,18 @@
     <Filter Include="Файлы заголовков\WonderMenu">
       <UniqueIdentifier>{0e599989-653e-4b00-adf5-03f111c37461}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\MyWonderMenuCommands">
+      <UniqueIdentifier>{7109154d-7b1b-451e-9870-4184abc39176}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OOP_Course_v001_console_front.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="WonderMenu.cpp">
+    <ClCompile Include="MenuCommandPrint.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="MenuCommand.cpp">
+    <ClCompile Include="Menu.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -45,6 +48,9 @@
       <Filter>Файлы ресурсов</Filter>
     </Library>
     <Library Include="ATable\x64\ATable.lib">
+      <Filter>Файлы ресурсов</Filter>
+    </Library>
+    <Library Include="WonderMenu\x64\WonderMenu.lib">
       <Filter>Файлы ресурсов</Filter>
     </Library>
   </ItemGroup>
@@ -97,17 +103,26 @@
     <ClInclude Include="ATable\x64\include\Keyable.h">
       <Filter>Файлы заголовков\ATable</Filter>
     </ClInclude>
-    <ClInclude Include="WonderMenu.h">
-      <Filter>Файлы заголовков\WonderMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuCommand.h">
-      <Filter>Файлы заголовков\WonderMenu</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuCommandEmpty.h">
+    <ClInclude Include="MenuCommandPrint.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="WonderMenuExceptions.h">
+    <ClInclude Include="Menu.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="WonderMenu\x64\include\WonderMenu.h">
+      <Filter>Файлы заголовков\WonderMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="WonderMenu\x64\include\WonderMenuExceptions.h">
+      <Filter>Файлы заголовков\WonderMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="WonderMenu\x64\include\MenuCommand.h">
+      <Filter>Файлы заголовков\WonderMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="WonderMenu\x64\include\MenuCommandEmpty.h">
+      <Filter>Файлы заголовков\WonderMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="WonderMenu\x64\include\WMenu.h">
+      <Filter>Файлы заголовков\WonderMenu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

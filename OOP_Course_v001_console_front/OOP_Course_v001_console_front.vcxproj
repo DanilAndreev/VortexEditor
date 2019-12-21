@@ -91,13 +91,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\ATable\x64\include;.\TurboPipes\x64\include;.\MagicJSON\x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\ATable\x64\include;.\WonderMenu\x64\include;.\TurboPipes\x64\include;.\MagicJSON\x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>.\ATable\x64;.\TurboPipes\x64;.\MagicJSON\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AddModuleNamesToAssembly>TurboPipes.lib;MagicJSON.lib;ATable.lib;%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
+      <AdditionalLibraryDirectories>.\WonderMenu\x64;.\ATable\x64;.\TurboPipes\x64;.\MagicJSON\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AddModuleNamesToAssembly>TurboPipes.lib;MagicJSON.lib;ATable.lib;WonderMenu.lib;%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -154,14 +154,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MenuCommand.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuCommandPrint.cpp" />
     <ClCompile Include="OOP_Course_v001_console_front.cpp" />
-    <ClCompile Include="WonderMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="ATable\x64\ATable.lib" />
     <Library Include="MagicJSON\x64\MagicJSON.lib" />
     <Library Include="TurboPipes\x64\TurboPipes.lib" />
+    <Library Include="WonderMenu\x64\WonderMenu.lib" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ATable\x64\include\Appearance.h" />
@@ -179,11 +180,14 @@
     <ClInclude Include="ATable\x64\include\Table.h" />
     <ClInclude Include="ATable\x64\include\TableExceptions.h" />
     <ClInclude Include="ATable\x64\include\TableObject.h" />
-    <ClInclude Include="MenuCommand.h" />
-    <ClInclude Include="MenuCommandEmpty.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuCommandPrint.h" />
     <ClInclude Include="Object.h" />
-    <ClInclude Include="WonderMenu.h" />
-    <ClInclude Include="WonderMenuExceptions.h" />
+    <ClInclude Include="WonderMenu\x64\include\MenuCommand.h" />
+    <ClInclude Include="WonderMenu\x64\include\MenuCommandEmpty.h" />
+    <ClInclude Include="WonderMenu\x64\include\WMenu.h" />
+    <ClInclude Include="WonderMenu\x64\include\WonderMenu.h" />
+    <ClInclude Include="WonderMenu\x64\include\WonderMenuExceptions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
