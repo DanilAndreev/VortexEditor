@@ -91,13 +91,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\TurboPipes\x64\include;.\MagicJSON\x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\ATable\x64\include;.\TurboPipes\x64\include;.\MagicJSON\x64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>.\TurboPipes\x64;.\MagicJSON\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AddModuleNamesToAssembly>TurboPipes.lib;MagicJSON.lib;%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
+      <AdditionalLibraryDirectories>.\ATable\x64;.\TurboPipes\x64;.\MagicJSON\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AddModuleNamesToAssembly>TurboPipes.lib;MagicJSON.lib;ATable.lib;%(AddModuleNamesToAssembly)</AddModuleNamesToAssembly>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -154,22 +154,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MenuCommand.cpp" />
     <ClCompile Include="OOP_Course_v001_console_front.cpp" />
+    <ClCompile Include="WonderMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Library Include="ATable\x64\ATable.lib" />
     <Library Include="MagicJSON\x64\MagicJSON.lib" />
     <Library Include="TurboPipes\x64\TurboPipes.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ATable\x64\include\Appearance.h" />
+    <ClInclude Include="ATable\x64\include\ATable.h" />
+    <ClInclude Include="ATable\x64\include\Cell.h" />
+    <ClInclude Include="ATable\x64\include\Column.h" />
+    <ClInclude Include="ATable\x64\include\ConstColumn.h" />
+    <ClInclude Include="ATable\x64\include\DefaultAppearance.h" />
+    <ClInclude Include="ATable\x64\include\DefaultCells.h" />
+    <ClInclude Include="ATable\x64\include\IdColumn.h" />
+    <ClInclude Include="ATable\x64\include\Keyable.h" />
+    <ClInclude Include="ATable\x64\include\Namable.h" />
+    <ClInclude Include="ATable\x64\include\NamedColumn.h" />
+    <ClInclude Include="ATable\x64\include\SimpleColumn.h" />
+    <ClInclude Include="ATable\x64\include\Table.h" />
+    <ClInclude Include="ATable\x64\include\TableExceptions.h" />
+    <ClInclude Include="ATable\x64\include\TableObject.h" />
+    <ClInclude Include="MenuCommand.h" />
+    <ClInclude Include="MenuCommandEmpty.h" />
     <ClInclude Include="Object.h" />
-    <ClInclude Include="TestPipeable.h" />
-    <ClInclude Include="TurboPipes\x64\include\Pipeable.h" />
-    <ClInclude Include="TurboPipes\x64\include\PipeableString.h" />
-    <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h" />
-    <ClInclude Include="TurboPipes\x64\include\PipeDispatcherString.h" />
-    <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h" />
-    <ClInclude Include="TurboPipes\x64\include\Threadable.h" />
-    <ClInclude Include="TurboPipes\x64\include\TurboPipes.h" />
+    <ClInclude Include="WonderMenu.h" />
+    <ClInclude Include="WonderMenuExceptions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,9 +19,21 @@
     <Filter Include="Файлы заголовков\TurboPipes">
       <UniqueIdentifier>{392eddff-36b8-4982-8138-c2952d648339}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\ATable">
+      <UniqueIdentifier>{a1a9754f-8575-4e0d-b5d5-6ea476cd33bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\WonderMenu">
+      <UniqueIdentifier>{0e599989-653e-4b00-adf5-03f111c37461}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OOP_Course_v001_console_front.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="WonderMenu.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommand.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,34 +44,70 @@
     <Library Include="TurboPipes\x64\TurboPipes.lib">
       <Filter>Файлы ресурсов</Filter>
     </Library>
+    <Library Include="ATable\x64\ATable.lib">
+      <Filter>Файлы ресурсов</Filter>
+    </Library>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TestPipeable.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+    <ClInclude Include="ATable\x64\include\Namable.h">
+      <Filter>Файлы заголовков\ATable</Filter>
     </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\Threadable.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+    <ClInclude Include="ATable\x64\include\NamedColumn.h">
+      <Filter>Файлы заголовков\ATable</Filter>
     </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\TurboPipes.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+    <ClInclude Include="ATable\x64\include\SimpleColumn.h">
+      <Filter>Файлы заголовков\ATable</Filter>
     </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\Pipeable.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+    <ClInclude Include="ATable\x64\include\Table.h">
+      <Filter>Файлы заголовков\ATable</Filter>
     </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\PipeableString.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+    <ClInclude Include="ATable\x64\include\TableExceptions.h">
+      <Filter>Файлы заголовков\ATable</Filter>
     </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+    <ClInclude Include="ATable\x64\include\TableObject.h">
+      <Filter>Файлы заголовков\ATable</Filter>
     </ClInclude>
-    <ClInclude Include="TurboPipes\x64\include\PipeDispatcherString.h">
-      <Filter>Файлы заголовков\TurboPipes</Filter>
+    <ClInclude Include="ATable\x64\include\Appearance.h">
+      <Filter>Файлы заголовков\ATable</Filter>
+    </ClInclude>
+    <ClInclude Include="ATable\x64\include\ATable.h">
+      <Filter>Файлы заголовков\ATable</Filter>
+    </ClInclude>
+    <ClInclude Include="ATable\x64\include\Cell.h">
+      <Filter>Файлы заголовков\ATable</Filter>
+    </ClInclude>
+    <ClInclude Include="ATable\x64\include\Column.h">
+      <Filter>Файлы заголовков\ATable</Filter>
+    </ClInclude>
+    <ClInclude Include="ATable\x64\include\ConstColumn.h">
+      <Filter>Файлы заголовков\ATable</Filter>
+    </ClInclude>
+    <ClInclude Include="ATable\x64\include\DefaultAppearance.h">
+      <Filter>Файлы заголовков\ATable</Filter>
+    </ClInclude>
+    <ClInclude Include="ATable\x64\include\DefaultCells.h">
+      <Filter>Файлы заголовков\ATable</Filter>
+    </ClInclude>
+    <ClInclude Include="ATable\x64\include\IdColumn.h">
+      <Filter>Файлы заголовков\ATable</Filter>
+    </ClInclude>
+    <ClInclude Include="ATable\x64\include\Keyable.h">
+      <Filter>Файлы заголовков\ATable</Filter>
+    </ClInclude>
+    <ClInclude Include="WonderMenu.h">
+      <Filter>Файлы заголовков\WonderMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommand.h">
+      <Filter>Файлы заголовков\WonderMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandEmpty.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="WonderMenuExceptions.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
