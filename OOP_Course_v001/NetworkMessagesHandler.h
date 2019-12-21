@@ -1,22 +1,22 @@
 #pragma once
 #include "TurboPipes.h"
-#include "MagicJSON.h"
+#include "DailyReport.h"
 #include "NetworkMessageKeys.h"
-#include "ATable.h"
 #include <string>
 #include <iostream>
 
 using namespace std;
 
 class NetworkMessagesHandler : public TurboPipes::PipeableString {
+protected:
+	DailyReport* dailyReport;
 public:
-	NetworkMessagesHandler();
+	NetworkMessagesHandler(DailyReport* dailyReport);
 	~NetworkMessagesHandler();
 public:
 	void handleMessage(wstring& message) override;
 protected:
-	void handleSendAllDataMessage(MagicJSON::JsonObject message);
-	static void addOperationToTable(MagicJSON::JsonObject operation, ATable::Table* table);
-	static ATable::Table* constructTableForOperations(string name);
+	void handleGetAllMessage();
+	static MagicJSON::JsonObject buildOperationJson(Operation* operation);
 };
 

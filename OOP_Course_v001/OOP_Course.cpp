@@ -3,7 +3,7 @@
 #include "DailyReport.h"
 #include "MagicJSON.h"
 
-#include "TPipeableString.h"
+#include "NetworkMessagesHandler.h"
 
 void save_test() {
 	DailyReport* report = new DailyReport();
@@ -51,7 +51,7 @@ void load_test() {
 	report->load(in);
 	in.close();
 	wcout << L"name:" << report->getReturn(2)->getDisk().getName() << endl;
-	wcout << L"name:" << report->getExtradiotion(3)->getDisk().getName() << endl;
+	wcout << L"name:" << report->getExtradition(3)->getDisk().getName() << endl;
 	
 	wstring buff;
 	wstring token;
@@ -66,20 +66,44 @@ void load_test() {
 	MagicJSON::JsonObject json_input(buff);
 	report->deserialize(buff);
 	wcout << L"name:" << report->getReturn(2)->getDisk().getName() << endl;
-	wcout << L"name:" << report->getExtradiotion(3)->getDisk().getName() << endl;
+	wcout << L"name:" << report->getExtradition(3)->getDisk().getName() << endl;
 
 
 	delete report;
 }
 
 int main() {
-	TPipeableString* p = new TPipeableString();
+	DailyReport* report = new DailyReport();
+
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
+	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
+
+
+	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
+	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
+	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
+	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
+		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
+
+
+
+
+	NetworkMessagesHandler* p = new NetworkMessagesHandler(report);
 	wcout << "waiting for client connection" << endl;
 	TurboPipes::PipeDispatcherString dsp(L"\\\\.\\pipe\\$MyPipe$", true, p);
 	wcout << "connected____" << endl;
 
 	WaitForSingleObject(dsp.getThreadHandle(), INFINITE);
-	//save_test();
+	save_test();
 	//load_test();
 
 	delete p;

@@ -25,6 +25,10 @@ Operation* DailyReport::getReturn(const size_t index) const {
 	return temp;
 }
 
+size_t DailyReport::getReturnsSize() {
+	return this->returns.size();
+}
+
 void DailyReport::addExtradition(Operation* extradition) {
 	if (extradition->isReturn()) {
 		throw InputIsNotExtradition();
@@ -32,12 +36,16 @@ void DailyReport::addExtradition(Operation* extradition) {
 	this->extraditions.push_back(extradition);
 }
 
-Operation* DailyReport::getExtradiotion(const size_t index) const {
+Operation* DailyReport::getExtradition(const size_t index) const {
 	Operation* temp = dynamic_cast<Operation*>(this->extraditions.get(index));
 	if (!temp) {
 		throw ZeroPointerException();
 	}
 	return temp;
+}
+
+size_t DailyReport::getExtraditionsSize() {
+	return this->extraditions.size();
 }
 
 void DailyReport::save(ofstream& stream) const {

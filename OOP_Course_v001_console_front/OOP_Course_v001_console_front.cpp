@@ -10,6 +10,7 @@
 using namespace std;
 
 int main() {
+	Sleep(100);
 	NetworkMessagesHandler p;
 	wcout << "Client connecting to server" << endl;
 	TurboPipes::PipeDispatcherString dispatcher(L"\\\\.\\pipe\\$MyPipe$", false, &p);
@@ -20,11 +21,5 @@ int main() {
 	menu.addCommand(new MenuCommandPrint(&dispatcher));
 
 	menu.start();
-/*
-	while (true) {
-		wstring message;
-		getline(wcin, message);
-		dispatcher.throwMessage(message);
-	}
-*/
+
 }

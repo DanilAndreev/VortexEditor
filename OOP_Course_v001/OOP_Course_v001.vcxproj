@@ -26,6 +26,7 @@
     <ClCompile Include="Disk.cpp" />
     <ClCompile Include="FVector.cpp" />
     <ClCompile Include="FWString.cpp" />
+    <ClCompile Include="NetworkMessagesHandler.cpp" />
     <ClCompile Include="Nameable.cpp" />
     <ClCompile Include="OOP_Course.cpp" />
     <ClCompile Include="Operation.cpp" />
@@ -52,7 +53,9 @@
     <ClInclude Include="MagicJSON\x64\include\JsonString.h" />
     <ClInclude Include="MagicJSON\x64\include\JsonTokenizer.h" />
     <ClInclude Include="MagicJSON\x64\include\MagicJSON.h" />
+    <ClInclude Include="NetworkMessagesHandler.h" />
     <ClInclude Include="Nameable.h" />
+    <ClInclude Include="NetworkMessageKeys.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Operation.h" />
     <ClInclude Include="PipesExceptions.h" />
@@ -61,7 +64,6 @@
     <ClInclude Include="Serializeable.h" />
     <ClInclude Include="SerializeExceptions.h" />
     <ClInclude Include="Studio.h" />
-    <ClInclude Include="TPipeableString.h" />
     <ClInclude Include="TurboPipes\x64\include\Pipeable.h" />
     <ClInclude Include="TurboPipes\x64\include\PipeableString.h" />
     <ClInclude Include="TurboPipes\x64\include\PipeDispatcher.h" />
