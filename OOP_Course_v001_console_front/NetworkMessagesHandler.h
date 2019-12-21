@@ -16,6 +16,7 @@ public:
 	void handleMessage(wstring& message) override;
 protected:
 	void handleSendAllDataMessage(MagicJSON::JsonObject message);
+	void handleSaveTetMessage(MagicJSON::JsonObject message);
 	static void addOperationToTable(MagicJSON::JsonObject operation, ATable::Table* table);
 	static ATable::Table* constructTableForOperations(string name);
 };

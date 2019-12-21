@@ -1,7 +1,7 @@
 #include "NetworkMessagesHandler.h"
 #include <locale>
 #include <codecvt>
-
+#include <fstream>
 
 NetworkMessagesHandler::NetworkMessagesHandler() {}
 
@@ -18,6 +18,14 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_SUCCESS) == 0) {
 			if (json_message.getString(SUCCESS_TYPE_KEY).compare(SUCCESS_READING_FILE) == 0) {
 				wcout << "Successfuly read file" << endl;
+			}
+		}
+		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_SAVE) == 0) {
+			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_TEXT) == 0) {
+				this->handleSaveTetMessage(json_message);
+			}
+			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_BINARY) == 0) {
+				wcout << "Save binary:: TODO" << endl;
 			}
 		}
 	}
@@ -52,6 +60,22 @@ void NetworkMessagesHandler::handleSendAllDataMessage(MagicJSON::JsonObject mess
 
 	delete table_extraditions;
 	delete table_returns;
+}
+
+void NetworkMessagesHandler::handleSaveTetMessage(MagicJSON::JsonObject message) {
+	MagicJSON::JsonObject save_data = message.getObject(VALUE_KEY);
+
+	try {
+		wofstream file;
+		file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+		file.open(message.getString(PATH_KEY));
+		file << save_data.toString();
+	}
+	catch (wofstream::failure e) {
+		wcout << "Error: unable to save in file: " << message.getString(PATH_KEY) << endl;
+		return;
+	}
+	wcout << "successfully saved file" << endl;
 }
 
 void NetworkMessagesHandler::addOperationToTable(MagicJSON::JsonObject operation, ATable::Table* table) {

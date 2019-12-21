@@ -28,30 +28,30 @@ void MenuCommandLoad::handleCommnad(wstring inputData) {
 		}
 		if (tokens[1].compare(L"text") == 0) {
 			json.addString(LOAD_DATA_KEY, LOAD_TEXT);
+			try {
+				wifstream file;
+				file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+				file.open(tokens[2]);
+				wstring buffer;
+				wstring token;
+				while (!file.eof()) {
+					file >> token;
+					buffer.append(token);
+				}
+				json.addObject(VALUE_KEY, MagicJSON::JsonObject(buffer));
+			}
+			catch (wifstream::failure e) {
+				wcout << "Error: error reading file" << endl;
+				return;
+			}
+			catch (MagicJSON::ErrorReadingTextException e) {
+				wcout << "Error: invalid file data" << endl;
+				return;
+			}
 		}
 		if (tokens[1].compare(L"binary") != 0 && tokens[1].compare(L"text") != 0) {
 			wcout << "invalid arguments: invalid file type" << endl;
 			wcout << "usage: load [text/binary] [filepath]" << endl;
-			return;
-		}
-		try {
-			wifstream file;
-			file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-			file.open(tokens[2]);
-			wstring buffer;
-			wstring token;
-			while (!file.eof()) {
-				file >> token;
-				buffer.append(token);
-			}
-			json.addObject(VALUE_KEY, MagicJSON::JsonObject(buffer));
-		}
-		catch (wifstream::failure e) {
-			wcout << "Error: error reading file" << endl;
-			return;
-		}	
-		catch (MagicJSON::ErrorReadingTextException e) {
-			wcout << "Error: invalid file data" << endl;
 			return;
 		}
 	}
