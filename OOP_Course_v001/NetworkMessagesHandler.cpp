@@ -1,5 +1,6 @@
 #include "NetworkMessagesHandler.h"
 #include "base_64.h"
+#include "StatTools.h"
 #include <locale>
 #include <codecvt>
 #include <string>
@@ -45,6 +46,11 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_ADD_DATA) == 0) {
 			if (json_message.getString(DATA_TYPE_KEY).compare(DATA_OPERATION) == 0) {
 				this->handleAddOperationMessage(json_message);
+			}
+		}
+		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_GET_REPORT) == 0) {
+			if (json_message.getString(REPORT_TYPE_KEY).compare(REPORT_STATISTIC) == 0) {
+				this->handleReportStaticticMessage(json_message);
 			}
 		}
 	}
@@ -285,6 +291,20 @@ void NetworkMessagesHandler::handleAddOperationMessage(MagicJSON::JsonObject mes
 	answer_json.addString(COMMAND_TYPE_KEY, COMMAND_SUCCESS);
 	answer_json.addString(SUCCESS_TYPE_KEY, SUCCESS_ADDING_DATA);
 	answer_json.addObject(VALUE_KEY, json_operation);
+	answer_json.addString(DATA_TYPE_KEY, DATA_OPERATION);
+	wstring answer_message = answer_json.toString();
+	this->dispatcher->throwMessage(answer_message);
+}
+
+void NetworkMessagesHandler::handleReportStaticticMessage(MagicJSON::JsonObject message) {
+	MagicJSON::JsonObject stat_json;
+	stat_json.addFloat(L"average_length", StatTools::statistic<int>(this->dailyReport));
+	stat_json.addFloat(L"average_symbols", StatTools::statistic<wstring>(this->dailyReport));
+
+	MagicJSON::JsonObject answer_json;
+	answer_json.addString(COMMAND_TYPE_KEY, COMMAND_GET_REPORT);
+	answer_json.addString(REPORT_TYPE_KEY, REPORT_STATISTIC);
+	answer_json.addObject(VALUE_KEY, stat_json);
 	answer_json.addString(DATA_TYPE_KEY, DATA_OPERATION);
 	wstring answer_message = answer_json.toString();
 	this->dispatcher->throwMessage(answer_message);

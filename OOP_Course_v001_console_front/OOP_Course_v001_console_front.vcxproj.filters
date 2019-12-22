@@ -66,6 +66,9 @@
     <ClCompile Include="MenuCommandAdd.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="MenuCommandStat.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="TurboPipes\x64\TurboPipes.lib">
@@ -173,6 +176,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="MenuCommandAdd.h">
+      <Filter>Файлы заголовков\MyWonderMenuCommands</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandStat.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

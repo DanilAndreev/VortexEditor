@@ -23,6 +23,7 @@ protected:
 	void handleLoadBinaryFileMessage(MagicJSON::JsonObject message);
 	void handleSaveBinaryFileMessage(MagicJSON::JsonObject message);
 	void handleAddOperationMessage(MagicJSON::JsonObject message);
+	void handleReportStaticticMessage(MagicJSON::JsonObject message);
 	static MagicJSON::JsonObject buildOperationJson(Operation* operation);
 };
 

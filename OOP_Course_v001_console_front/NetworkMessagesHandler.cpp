@@ -29,10 +29,15 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 		}
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_SAVE) == 0) {
 			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_TEXT) == 0) {
-				this->handleSaveTetMessage(json_message);
+				this->handleSaveTextMessage(json_message);
 			}
 			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_BINARY) == 0) {
-				this->handleBinaryTetMessage(json_message);
+				this->handleBinaryTextMessage(json_message);
+			}
+		}
+		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_GET_REPORT) == 0) {
+			if (json_message.getString(REPORT_TYPE_KEY).compare(REPORT_STATISTIC) == 0) {
+				this->handleGetStatisticMessage(json_message);
 			}
 		}
 	}
@@ -71,7 +76,7 @@ void NetworkMessagesHandler::handleSendAllDataMessage(MagicJSON::JsonObject mess
 }
 
 
-void NetworkMessagesHandler::handleSaveTetMessage(MagicJSON::JsonObject message) {
+void NetworkMessagesHandler::handleSaveTextMessage(MagicJSON::JsonObject message) {
 	MagicJSON::JsonObject save_data = message.getObject(VALUE_KEY);
 
 	try {
@@ -88,7 +93,7 @@ void NetworkMessagesHandler::handleSaveTetMessage(MagicJSON::JsonObject message)
 }
 
 
-void NetworkMessagesHandler::handleBinaryTetMessage(MagicJSON::JsonObject message) {
+void NetworkMessagesHandler::handleBinaryTextMessage(MagicJSON::JsonObject message) {
 	wstring_convert<codecvt_utf8_utf16<wchar_t>> converter;
 	string base_string = base64_decode(converter.to_bytes(message.getString(VALUE_KEY)));
 	size_t size = message.getInteger(SIZE_KEY);
@@ -110,9 +115,22 @@ void NetworkMessagesHandler::handleBinaryTetMessage(MagicJSON::JsonObject messag
 	wcout << "successfully saved file" << endl;
 }
 
+
 void NetworkMessagesHandler::handleAddDataSuccessMessage(MagicJSON::JsonObject message) {
 	ATable::Table* table = constructTableForOperations("new object");
 	addOperationToTable(message.getObject(VALUE_KEY), table);
+	table->print(cout);
+	delete table;
+}
+
+
+void NetworkMessagesHandler::handleGetStatisticMessage(MagicJSON::JsonObject message) {
+	ATable::Table* table = new ATable::Table(ATable::DefaultAppearance(), "statistic");
+	table->addColumn(new ATable::SimpleColumn("Average films leghth", 30, "film_length"));
+	table->addColumn(new ATable::SimpleColumn("Average film names leghth", 30, "name_length"));
+
+	table->addCell("film_length", new ATable::DoubleCell(message.getObject(VALUE_KEY).getFloat(L"average_length")));
+	table->addCell("name_length", new ATable::DoubleCell(message.getObject(VALUE_KEY).getFloat(L"average_symbols")));
 	table->print(cout);
 	delete table;
 }
