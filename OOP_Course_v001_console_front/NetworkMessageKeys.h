@@ -28,6 +28,7 @@ const wstring COMMAND_ERROR = L"error";
 const wstring COMMAND_SUCCESS = L"success";
 const wstring COMMAND_LOAD = L"load_data";
 const wstring COMMAND_SAVE = L"save_data";
+const wstring COMMAND_TERMINATE = L"terminate";
 
 
 // ERROR VALUES

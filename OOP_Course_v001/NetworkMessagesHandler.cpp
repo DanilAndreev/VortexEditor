@@ -53,6 +53,9 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 				this->handleReportStaticticMessage(json_message);
 			}
 		}
+		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_TERMINATE) == 0) {
+			this->dispatcher->stopThread();
+		}
 	}
 	catch (MagicJSON::JsonException e) {
 		wcout << "Error: recieved error type message" << endl;

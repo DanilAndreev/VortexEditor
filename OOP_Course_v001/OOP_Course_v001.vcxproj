@@ -60,7 +60,6 @@
     <ClInclude Include="NetworkMessageKeys.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Operation.h" />
-    <ClInclude Include="PipesExceptions.h" />
     <ClInclude Include="Returnable.h" />
     <ClInclude Include="Saveable.h" />
     <ClInclude Include="Serializeable.h" />

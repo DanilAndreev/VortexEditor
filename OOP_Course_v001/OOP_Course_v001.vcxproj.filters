@@ -173,9 +173,6 @@
     <ClInclude Include="MagicJSON\x64\include\MagicJSON.h">
       <Filter>Файлы ресурсов\Libraries\MagicJSON_lib_headers</Filter>
     </ClInclude>
-    <ClInclude Include="PipesExceptions.h">
-      <Filter>Файлы заголовков\Root\Exceptions</Filter>
-    </ClInclude>
     <ClInclude Include="TurboPipes\x64\include\PipesExceptions.h">
       <Filter>Файлы ресурсов\Libraries\TurboPipes_lib_headers</Filter>
     </ClInclude>
