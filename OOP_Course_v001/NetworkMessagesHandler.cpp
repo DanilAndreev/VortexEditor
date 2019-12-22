@@ -4,6 +4,9 @@
 #include <locale>
 #include <codecvt>
 #include <string>
+#include <chrono>
+#include <ctime>
+
 
 NetworkMessagesHandler::NetworkMessagesHandler(DailyReport* dailyReport) : dailyReport(dailyReport) {
 	if (!this->dailyReport) {
@@ -17,7 +20,10 @@ NetworkMessagesHandler::~NetworkMessagesHandler() {}
 
 void NetworkMessagesHandler::handleMessage(wstring& message) {
 	try{
-		wcout << "recieved: " << message << endl;
+		std::time_t current_time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+		char buff[30];
+		ctime_s(buff, 30, &current_time);
+		wcout << buff << "recieved: " << message << endl << endl;
 		MagicJSON::JsonObject json_message(message);
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_GET_DATA) == 0) {
 			if (json_message.getString(DATA_TYPE_KEY).compare(DATA_ALL) == 0) {

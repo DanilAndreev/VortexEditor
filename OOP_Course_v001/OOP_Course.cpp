@@ -5,107 +5,21 @@
 
 #include "NetworkMessagesHandler.h"
 
-void save_test() {
-	DailyReport* report = new DailyReport();
-
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Hike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Bike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Lol", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-
-
-	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
-	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
-	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
-	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
-
-
-	ofstream out_bin("test.cls", ios::binary);
-	report->save(out_bin);
-	out_bin.close();
-
-
-	
-	wofstream out_json("test.json");
-	out_json << report->serialize().toString();
-	wcout << report->serialize().toString() << endl;
-	out_json.close();
-	
-	
-
-	delete report;
-}
-
-void load_test() {
-	DailyReport* report = new DailyReport();
-	
-	ifstream in("test.cls", ios::binary);
-	report->load(in);
-	in.close();
-	wcout << L"name:" << report->getReturn(2)->getDisk().getName() << endl;
-	wcout << L"name:" << report->getExtradition(3)->getDisk().getName() << endl;
-	
-	wstring buff;
-	wstring token;
-	wifstream in_json("test.json");
-
-	while (!in_json.eof()) {
-		in_json >> buff;
-		buff.append(token);
-	}
-	in_json.close();
-
-	MagicJSON::JsonObject json_input(buff);
-	report->deserialize(buff);
-	wcout << L"name:" << report->getReturn(2)->getDisk().getName() << endl;
-	wcout << L"name:" << report->getExtradition(3)->getDisk().getName() << endl;
-
-
-	delete report;
-}
 
 int main() {
+	wcout << "Copyright (C) Andrieiev Danil 2019" << endl;
+	wcout << "Vortex Server startup" << endl;
+	//creating new daily report
 	DailyReport* report = new DailyReport();
 
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Bike", L"Hermes", 1993, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Hike", L"Hermes", 1994, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-	report->addExtradition(new Operation(Date2(1998, 12, 24), Abonent(L"Like", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), false));
-
-
-	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
-	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
-	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
-	report->addReturn(new Operation(Date2(1998, 12, 24), Abonent(L"Mike", L"Hermes", 1992, 2),
-		Disk(Studio(L"Blizzard", 1993, 4, 30), 200, L"Warcraft", 1997, 5, 21), true));
-
-
-
-
+	//creating network message handler
 	NetworkMessagesHandler* p = new NetworkMessagesHandler(report);
-	wcout << "waiting for client connection" << endl;
+	wcout << "Server is waiting for client connection" << endl;
+	//creating network dispatcher
 	TurboPipes::PipeDispatcherString dsp(L"\\\\.\\pipe\\$MyPipe$", true, p);
-	wcout << "connected____" << endl;
+	wcout << "Client has been connected to server" << endl;
 
+	//waiting for network dispatcher therad
 	WaitForSingleObject(dsp.getThreadHandle(), INFINITE);
-	save_test();
-	//load_test();
-
 	delete p;
-	wcout << "end" << endl;
 }

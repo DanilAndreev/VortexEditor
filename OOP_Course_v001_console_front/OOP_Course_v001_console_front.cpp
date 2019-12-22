@@ -11,7 +11,6 @@
 #include "MenuCommandExit.h"
 #include "TurboPipes.h"
 #include "NetworkMessagesHandler.h"
-
 #include <vector>
 #include <locale>
 #include <codecvt>
@@ -23,6 +22,8 @@ const LPCWSTR PIPE_NAME = L"\\pipe\\$MyPipe$";
 wstring PIPE_ADRESS;
 
 int main(int argc, char* argv[]) {
+	wcout << "Copyright (C) Andrieiev Danil 2019" << endl;
+	wcout << "Vortex Client startup" << endl;
 	// checking arguments
 	vector<string> args;
 	for (int i = argc - 1; i > 0; i--) {
@@ -51,15 +52,16 @@ int main(int argc, char* argv[]) {
 	}
 
 
-	Sleep(1000);
-
+	// creating network messages handler
 	NetworkMessagesHandler p;
-	wcout << "Client connecting to server" << endl;
+	wcout << "Client attempting to connect to server" << endl;
+	// creating network dispatcher
 	TurboPipes::PipeDispatcherString dispatcher(PIPE_ADRESS, false, &p);
-	wcout << "connected" << endl;
+	wcout << "Client has been connected" << endl;
 	
-	
+	// creating menu
 	Menu menu;
+	// adding commands menu
 	menu.addCommand(new MenuCommandPrint(&dispatcher));
 	menu.addCommand(new MenuCommandFind(&dispatcher));
 	menu.addCommand(new MenuCommandLoad(&dispatcher));
@@ -68,5 +70,6 @@ int main(int argc, char* argv[]) {
 	menu.addCommand(new MenuCommandStat(&dispatcher));
 	menu.addCommand(new MenuCommandExit(&dispatcher));
 
+	// starting menu loop
 	menu.start();
 }
