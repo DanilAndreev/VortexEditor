@@ -15,6 +15,7 @@ FWString Abonent::getSurename() const {
 void Abonent::save(ofstream& stream) const {
 	hash_code hash = (hash_code)typeid(Abonent).hash_code();
 	stream.write((char*)& hash, sizeof(hash_code));
+	this->name.save(stream);
 	this->surename.save(stream);
 	Date1::save(stream);
 }
@@ -25,6 +26,7 @@ void Abonent::load(ifstream& stream) {
 	if (hash != (hash_code)typeid(Abonent).hash_code()) {
 		throw WrongInputFileException();
 	}
+	this->name.load(stream);
 	this->surename.load(stream);
 	Date1::load(stream);
 }

@@ -6,6 +6,7 @@
 #include "MenuCommandFind.h"
 #include "MenuCommandLoad.h"
 #include "MenuCommandSave.h"
+#include "MenuCommandAdd.h"
 #include "TurboPipes.h"
 #include "NetworkMessagesHandler.h"
 
@@ -26,6 +27,7 @@ int main() {
 	menu.addCommand(new MenuCommandFind(&dispatcher));
 	menu.addCommand(new MenuCommandLoad(&dispatcher));
 	menu.addCommand(new MenuCommandSave(&dispatcher));
+	menu.addCommand(new MenuCommandAdd(&dispatcher));
 
 	menu.start();
 

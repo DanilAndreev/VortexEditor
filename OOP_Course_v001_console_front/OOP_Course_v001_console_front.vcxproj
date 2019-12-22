@@ -155,7 +155,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="base_64.cpp" />
+    <ClCompile Include="InputChecker.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuCommandAdd.cpp" />
     <ClCompile Include="MenuCommandFind.cpp" />
     <ClCompile Include="MenuCommandLoad.cpp" />
     <ClCompile Include="MenuCommandPrint.cpp" />
@@ -186,7 +188,9 @@
     <ClInclude Include="ATable\x64\include\TableExceptions.h" />
     <ClInclude Include="ATable\x64\include\TableObject.h" />
     <ClInclude Include="base_64.h" />
+    <ClInclude Include="InputChecker.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuCommandAdd.h" />
     <ClInclude Include="MenuCommandFind.h" />
     <ClInclude Include="MenuCommandLoad.h" />
     <ClInclude Include="MenuCommandPrint.h" />

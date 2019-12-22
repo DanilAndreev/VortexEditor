@@ -20,6 +20,7 @@ const wstring SUCCESS_TYPE_KEY = L"success_type";
 // COMANDS
 
 const wstring COMMAND_GET_DATA = L"get_data";
+const wstring COMMAND_ADD_DATA = L"add_data";
 const wstring COMMAND_SEND_DATA = L"send_data";
 const wstring COMMAND_ERROR = L"error";
 const wstring COMMAND_SUCCESS = L"success";
@@ -31,10 +32,12 @@ const wstring COMMAND_SAVE = L"save_data";
 
 const wstring ERROR_INVALID_COMMAND = L"invalid_command";
 const wstring ERROR_INVALID_FILE = L"invalid_file";
+const wstring ERROR_INVALID_VALUES = L"invalid_values";
 
 // SUCCESS VALUES
 
 const wstring SUCCESS_READING_FILE = L"success_reading_file";
+const wstring SUCCESS_ADDING_DATA = L"success_adding_data";
 
 
 // DATA TYPES
@@ -42,6 +45,7 @@ const wstring SUCCESS_READING_FILE = L"success_reading_file";
 const wstring DATA_ALL = L"data_all";
 const wstring DATA_FILTERED = L"data_fitered";
 
+const wstring DATA_OPERATION = L"data_operation";
 
 // FILTER TYPES
 

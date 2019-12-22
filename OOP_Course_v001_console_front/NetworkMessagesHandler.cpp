@@ -12,7 +12,6 @@ NetworkMessagesHandler::~NetworkMessagesHandler() {}
 
 void NetworkMessagesHandler::handleMessage(wstring& message) {
 	try {
-		//wcout << "recieved: " << message << endl;
 		MagicJSON::JsonObject json_message(message);
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_SEND_DATA) == 0) {
 			this->handleSendAllDataMessage(json_message);
@@ -128,8 +127,6 @@ void NetworkMessagesHandler::addOperationToTable(MagicJSON::JsonObject operation
 	table->addCell("studio_year", new ATable::LongCell(operation.getInteger(L"studio_year")));
 	table->addCell("studio_month", new ATable::LongCell(operation.getInteger(L"studio_month")));
 	table->addCell("studio_day", new ATable::LongCell(operation.getInteger(L"studio_day")));
-
-
 }
 
 
