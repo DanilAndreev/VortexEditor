@@ -190,6 +190,7 @@
     <ClInclude Include="ATable\x64\include\TableExceptions.h" />
     <ClInclude Include="ATable\x64\include\TableObject.h" />
     <ClInclude Include="base_64.h" />
+    <ClInclude Include="Directories.h" />
     <ClInclude Include="InputChecker.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuCommandAdd.h" />

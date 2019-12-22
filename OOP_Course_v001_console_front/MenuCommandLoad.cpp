@@ -1,4 +1,5 @@
 #include "MenuCommandLoad.h"
+#include "Directories.h"
 #include <iterator>
 #include <sstream>
 #include <vector>
@@ -6,7 +7,10 @@
 #include "base_64.h"
 #include <locale>
 #include <codecvt>
+#include <filesystem>
+#include <iostream>
 
+namespace fs = std::experimental::filesystem::v1;
 
 MenuCommandLoad::MenuCommandLoad(TurboPipes::PipeDispatcherString* dispatcher) : 
 	WMenu::MenuCommand(L"load", L"Loads data from text or binary file"), dispatcher(dispatcher) {
@@ -27,15 +31,11 @@ void MenuCommandLoad::handleCommnad(wstring inputData) {
 	vector<wstring> tokens((istream_iterator<wstring, wchar_t>(iss)), istream_iterator<wstring, wchar_t>());
 	if (tokens.size() == 3) {
 		if (tokens[1].compare(L"binary") == 0) {
-			//show all files in directory
-			
-
-
 			json.addString(LOAD_DATA_KEY, LOAD_BINARY);
 			try {
 				ifstream file;
 				file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-				file.open(tokens[2], ios::binary);
+				file.open(FILES_DIRECTORY + tokens[2], ios::binary);
 				file.seekg(0, file.end);
 				size_t fileLength = file.tellg();
 				json.addInteger(SIZE_KEY, fileLength);
@@ -51,6 +51,13 @@ void MenuCommandLoad::handleCommnad(wstring inputData) {
 			}
 			catch (wifstream::failure e) {
 				wcout << "Error: error reading file" << endl;
+				wcout << "Available files: " << endl;
+				//show all files in directory
+				for (const auto& entry : fs::directory_iterator(FILES_DIRECTORY)) {
+					if (entry.path().extension().compare(BINARY_EXTENSION) == 0) {
+						wcout << entry.path().filename() << endl;
+					}
+				}
 				return;
 			}
 		}
@@ -69,6 +76,13 @@ void MenuCommandLoad::handleCommnad(wstring inputData) {
 				json.addObject(VALUE_KEY, MagicJSON::JsonObject(buffer));
 			}
 			catch (wifstream::failure e) {
+				wcout << "Available files: " << endl;
+				//show all files in directory
+				for (const auto& entry : fs::directory_iterator(FILES_DIRECTORY)) {
+					if (entry.path().extension().compare(TEXT_EXTENSION) == 0) {
+						wcout << entry.path().filename() << endl;
+					}
+				}
 				wcout << "Error: error reading file" << endl;
 				return;
 			}

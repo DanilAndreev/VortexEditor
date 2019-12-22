@@ -1,4 +1,5 @@
 #include "NetworkMessagesHandler.h"
+#include "Directories.h"
 #include "base_64.h"
 #include <locale>
 #include <codecvt>
@@ -32,7 +33,7 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 				this->handleSaveTextMessage(json_message);
 			}
 			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_BINARY) == 0) {
-				this->handleBinaryTextMessage(json_message);
+				this->handleSaveBinaryMessage(json_message);
 			}
 		}
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_GET_REPORT) == 0) {
@@ -82,7 +83,7 @@ void NetworkMessagesHandler::handleSaveTextMessage(MagicJSON::JsonObject message
 	try {
 		wofstream file;
 		file.exceptions(std::wofstream::failbit | std::wofstream::badbit);
-		file.open(message.getString(PATH_KEY));
+		file.open(FILES_DIRECTORY + message.getString(PATH_KEY) + TEXT_EXTENSION);
 		file << save_data.toString();
 	}
 	catch (wofstream::failure e) {
@@ -93,7 +94,7 @@ void NetworkMessagesHandler::handleSaveTextMessage(MagicJSON::JsonObject message
 }
 
 
-void NetworkMessagesHandler::handleBinaryTextMessage(MagicJSON::JsonObject message) {
+void NetworkMessagesHandler::handleSaveBinaryMessage(MagicJSON::JsonObject message) {
 	wstring_convert<codecvt_utf8_utf16<wchar_t>> converter;
 	string base_string = base64_decode(converter.to_bytes(message.getString(VALUE_KEY)));
 	size_t size = message.getInteger(SIZE_KEY);
@@ -102,7 +103,7 @@ void NetworkMessagesHandler::handleBinaryTextMessage(MagicJSON::JsonObject messa
 	ofstream file;
 	try {
 		file.exceptions(std::ofstream::failbit | std::ofstream::badbit);
-		file.open(message.getString(PATH_KEY), ios::binary);	
+		file.open(FILES_DIRECTORY + message.getString(PATH_KEY) + BINARY_EXTENSION, ios::binary);
 	}
 	catch (ofstream::failure e) {
 		wcout << "Error: unable to save in file: " << message.getString(PATH_KEY) << endl;
