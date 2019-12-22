@@ -9,5 +9,5 @@ Vortex Editor - separated editor designed for operations manipulation in disk st
 * Application uses ATable table constructor for console front-end
 
 
-#### Copyright (C) Andrieiev Danil 2019
+##### Copyright (C) Andrieiev Danil 2019
  
