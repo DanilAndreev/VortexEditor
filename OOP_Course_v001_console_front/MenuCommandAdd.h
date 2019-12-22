@@ -8,6 +8,7 @@
 
 using namespace std;
 
+
 const LPCWSTR INCORRECT_DAY_MSG = L"Incorrect day, enter integer mote than 0 and less or equal 31";
 const LPCWSTR INCORRECT_MONTH_MSG = L"Incorrect month, enter integer mote than 0 and less or equal 12";
 const LPCWSTR INCORRECT_YEAR_MSG = L"Incorrect year, enter integer value";

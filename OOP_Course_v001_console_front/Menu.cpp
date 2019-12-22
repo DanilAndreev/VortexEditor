@@ -3,7 +3,7 @@
 #include <locale>
 
 
-Menu::Menu() {}
+Menu::Menu() : WMenu::WonderMenu(L"exit") {}
 
 
 Menu::~Menu() {}

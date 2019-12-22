@@ -158,6 +158,7 @@
     <ClCompile Include="InputChecker.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuCommandAdd.cpp" />
+    <ClCompile Include="MenuCommandExit.cpp" />
     <ClCompile Include="MenuCommandFind.cpp" />
     <ClCompile Include="MenuCommandLoad.cpp" />
     <ClCompile Include="MenuCommandPrint.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="InputChecker.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuCommandAdd.h" />
+    <ClInclude Include="MenuCommandExit.h" />
     <ClInclude Include="MenuCommandFind.h" />
     <ClInclude Include="MenuCommandLoad.h" />
     <ClInclude Include="MenuCommandPrint.h" />
