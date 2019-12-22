@@ -27,6 +27,10 @@ void MenuCommandLoad::handleCommnad(wstring inputData) {
 	vector<wstring> tokens((istream_iterator<wstring, wchar_t>(iss)), istream_iterator<wstring, wchar_t>());
 	if (tokens.size() == 3) {
 		if (tokens[1].compare(L"binary") == 0) {
+			//show all files in directory
+			
+
+
 			json.addString(LOAD_DATA_KEY, LOAD_BINARY);
 			try {
 				ifstream file;

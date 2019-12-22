@@ -2,7 +2,8 @@
 #include <iterator>
 #include <sstream>
 #include <vector>
-
+#include <iostream>
+#include <stdexcept>
 
 MenuCommandExit::MenuCommandExit(TurboPipes::PipeDispatcherString* dispatcher) :
 	WMenu::MenuCommand(L"exit", L"Stops the session"), dispatcher(dispatcher) {
@@ -27,7 +28,8 @@ void MenuCommandExit::handleCommnad(wstring inputData) {
 		return;
 	}
 	try {
-		if (tokens[1].compare(L"-stop_server") == 0) {
+		
+		if (tokens.at(1).compare(L"-stop_server") == 0) {
 			MagicJSON::JsonObject message_json;
 			message_json.addString(COMMAND_TYPE_KEY, COMMAND_TERMINATE);
 			wstring string_message = message_json.toString();
@@ -41,6 +43,6 @@ void MenuCommandExit::handleCommnad(wstring inputData) {
 			return;
 		}
 	}
-	catch (out_of_range e) {}
+	catch (std::out_of_range e) {}
 	this->dispatcher->stopThread();
 }
