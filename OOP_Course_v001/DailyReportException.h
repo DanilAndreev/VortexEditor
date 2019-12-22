@@ -3,10 +3,10 @@
 
 class InputIsNotReturn : public WrongInputDataException {
 public:
-	char const* what() const override { return "Error: InputIsNotReturn"; }
+	char const* what() const noexcept override { return "Error: InputIsNotReturn"; }
 };
 
 class InputIsNotExtradition : public WrongInputDataException {
 public:
-	char const* what() const override { return "Error: InputIsNotExtradition"; }
+	char const* what() const noexcept override { return "Error: InputIsNotExtradition"; }
 };
