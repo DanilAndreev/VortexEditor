@@ -162,6 +162,7 @@
     <ClCompile Include="MenuCommandLoad.cpp" />
     <ClCompile Include="MenuCommandPrint.cpp" />
     <ClCompile Include="MenuCommandSave.cpp" />
+    <ClCompile Include="MenuCommandStat.cpp" />
     <ClCompile Include="NetworkMessagesHandler.cpp" />
     <ClCompile Include="OOP_Course_v001_console_front.cpp" />
   </ItemGroup>
@@ -195,6 +196,7 @@
     <ClInclude Include="MenuCommandLoad.h" />
     <ClInclude Include="MenuCommandPrint.h" />
     <ClInclude Include="MenuCommandSave.h" />
+    <ClInclude Include="MenuCommandStat.h" />
     <ClInclude Include="NetworkMessageKeys.h" />
     <ClInclude Include="NetworkMessagesHandler.h" />
     <ClInclude Include="Object.h" />

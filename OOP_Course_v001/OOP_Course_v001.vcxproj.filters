@@ -206,6 +206,9 @@
     <ClInclude Include="NetworkMessageKeys.h">
       <Filter>Файлы заголовков\Network</Filter>
     </ClInclude>
+    <ClInclude Include="StatTools.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="MagicJSON\x64\MagicJSON.lib">

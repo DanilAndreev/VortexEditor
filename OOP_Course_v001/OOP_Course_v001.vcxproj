@@ -65,6 +65,7 @@
     <ClInclude Include="Saveable.h" />
     <ClInclude Include="Serializeable.h" />
     <ClInclude Include="SerializeExceptions.h" />
+    <ClInclude Include="StatTools.h" />
     <ClInclude Include="Studio.h" />
     <ClInclude Include="TurboPipes\x64\include\Pipeable.h" />
     <ClInclude Include="TurboPipes\x64\include\PipeableString.h" />
