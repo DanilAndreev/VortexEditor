@@ -4,7 +4,6 @@
 #include <codecvt>
 #include <string>
 
-
 NetworkMessagesHandler::NetworkMessagesHandler(DailyReport* dailyReport) : dailyReport(dailyReport) {
 	if (!this->dailyReport) {
 		throw ZeroPointerException();
@@ -41,6 +40,11 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 			}
 			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_TEXT) == 0) {
 				this->handleSaveTextFileMessage(json_message);
+			}
+		}
+		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_ADD_DATA) == 0) {
+			if (json_message.getString(DATA_TYPE_KEY).compare(DATA_OPERATION) == 0) {
+				this->handleSaveBinaryFileMessage(json_message);
 			}
 		}
 	}
@@ -227,6 +231,61 @@ void NetworkMessagesHandler::handleSaveBinaryFileMessage(MagicJSON::JsonObject m
 	catch (wifstream::failure e) {
 		wcout << "Error: error trying to access to temp.binary file" << endl;
 	}
+}
+
+
+void NetworkMessagesHandler::handleAddOperationMessage(MagicJSON::JsonObject message) {
+	MagicJSON::JsonObject json_operation = message.getObject(VALUE_KEY);
+	bool isReturn = false;
+	if (json_operation.getString(L"operation_type").compare(L"return") == 0) {
+		isReturn = true;
+	}
+
+	long operation_day = json_operation.getInteger(L"operation_day");
+	long operation_month = json_operation.getInteger(L"operation_month");
+	long operation_year = json_operation.getInteger(L"operation_year");
+	wstring abonent_name = json_operation.getString(L"abonent_name");
+	wstring abonent_surename = json_operation.getString(L"abonent_surename");
+	long abonent_month = json_operation.getInteger(L"abonent_month");
+	long abonent_year = json_operation.getInteger(L"abonent_year");
+	long disk_lenght = json_operation.getInteger(L"disk_lenght");
+	wstring disk_name = json_operation.getString(L"disk_name");
+	long disk_day = json_operation.getInteger(L"disk_day");
+	long disk_month = json_operation.getInteger(L"disk_month");
+	long disk_year = json_operation.getInteger(L"disk_year");
+	wstring studio_name = json_operation.getString(L"studio_name");
+	long studio_day = json_operation.getInteger(L"studio_day");
+	long studio_month = json_operation.getInteger(L"studio_month");
+	long studio_year = json_operation.getInteger(L"studio_year");
+
+
+
+	try {
+		Operation* operation = new Operation(
+			Date2(operation_year, operation_month, operation_day), 
+			Abonent(abonent_name, abonent_surename, abonent_year, abonent_month),
+			Disk(Studio(studio_name, studio_year, studio_month, studio_day), 
+			disk_lenght, disk_name, disk_year, disk_month, disk_day), isReturn);
+		if (isReturn) {
+			this->dailyReport->addReturn(operation);
+		}
+		else {
+			this->dailyReport->addExtradition(operation);
+		}
+	}
+	catch (WrongInputValuesException e) {
+		MagicJSON::JsonObject answer_json;
+		answer_json.addString(COMMAND_TYPE_KEY, COMMAND_ERROR);
+		answer_json.addString(ERROR_TYPE_KEY, ERROR_INVALID_VALUES);
+		wstring answer_message = answer_json.toString();
+		this->dispatcher->throwMessage(answer_message);
+	}
+
+	MagicJSON::JsonObject answer_json;
+	answer_json.addString(COMMAND_TYPE_KEY, SUCCESS_TYPE_KEY);
+	answer_json.addString(SUCCESS_TYPE_KEY, SUCCESS_ADDING_DATA);
+	wstring answer_message = answer_json.toString();
+	this->dispatcher->throwMessage(answer_message);
 }
 
 

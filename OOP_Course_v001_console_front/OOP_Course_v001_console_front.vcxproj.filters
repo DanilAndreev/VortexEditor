@@ -60,6 +60,12 @@
     <ClCompile Include="base_64.cpp">
       <Filter>Файлы ресурсов\base_64</Filter>
     </ClCompile>
+    <ClCompile Include="InputChecker.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuCommandAdd.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="TurboPipes\x64\TurboPipes.lib">
@@ -162,6 +168,12 @@
     </ClInclude>
     <ClInclude Include="base_64.h">
       <Filter>Файлы ресурсов\base_64</Filter>
+    </ClInclude>
+    <ClInclude Include="InputChecker.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuCommandAdd.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

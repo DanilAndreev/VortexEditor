@@ -43,6 +43,9 @@
     <Filter Include="Файлы ресурсов\Libraries\MagicJSON_lib_headers">
       <UniqueIdentifier>{f8a9fbee-51aa-4246-abed-b231aaee2553}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Network">
+      <UniqueIdentifier>{5ee286b9-07c9-4855-8b41-317999fea48e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Abonent.cpp">
@@ -194,14 +197,14 @@
     <ClInclude Include="TurboPipes\x64\include\PipeDispatcherString.h">
       <Filter>Файлы ресурсов\Libraries\TurboPipes_lib_headers</Filter>
     </ClInclude>
-    <ClInclude Include="NetworkMessageKeys.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="NetworkMessagesHandler.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="base_64.h">
       <Filter>Файлы ресурсов\base_64</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkMessagesHandler.h">
+      <Filter>Файлы заголовков\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkMessageKeys.h">
+      <Filter>Файлы заголовков\Network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
