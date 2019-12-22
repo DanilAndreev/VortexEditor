@@ -85,9 +85,6 @@
     </Library>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Object.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="ATable\x64\include\Namable.h">
       <Filter>Файлы ресурсов\Libraries\ATable_lib_headers</Filter>
     </ClInclude>

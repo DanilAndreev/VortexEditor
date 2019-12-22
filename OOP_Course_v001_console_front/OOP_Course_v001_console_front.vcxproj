@@ -199,7 +199,6 @@
     <ClInclude Include="MenuCommandStat.h" />
     <ClInclude Include="NetworkMessageKeys.h" />
     <ClInclude Include="NetworkMessagesHandler.h" />
-    <ClInclude Include="Object.h" />
     <ClInclude Include="WonderMenu\x64\include\MenuCommand.h" />
     <ClInclude Include="WonderMenu\x64\include\MenuCommandEmpty.h" />
     <ClInclude Include="WonderMenu\x64\include\WMenu.h" />
