@@ -44,7 +44,7 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 		}
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_ADD_DATA) == 0) {
 			if (json_message.getString(DATA_TYPE_KEY).compare(DATA_OPERATION) == 0) {
-				this->handleSaveBinaryFileMessage(json_message);
+				this->handleAddOperationMessage(json_message);
 			}
 		}
 	}
@@ -248,7 +248,7 @@ void NetworkMessagesHandler::handleAddOperationMessage(MagicJSON::JsonObject mes
 	wstring abonent_surename = json_operation.getString(L"abonent_surename");
 	long abonent_month = json_operation.getInteger(L"abonent_month");
 	long abonent_year = json_operation.getInteger(L"abonent_year");
-	long disk_lenght = json_operation.getInteger(L"disk_lenght");
+	long disk_lenght = json_operation.getInteger(L"disk_length");
 	wstring disk_name = json_operation.getString(L"disk_name");
 	long disk_day = json_operation.getInteger(L"disk_day");
 	long disk_month = json_operation.getInteger(L"disk_month");
@@ -282,8 +282,10 @@ void NetworkMessagesHandler::handleAddOperationMessage(MagicJSON::JsonObject mes
 	}
 
 	MagicJSON::JsonObject answer_json;
-	answer_json.addString(COMMAND_TYPE_KEY, SUCCESS_TYPE_KEY);
+	answer_json.addString(COMMAND_TYPE_KEY, COMMAND_SUCCESS);
 	answer_json.addString(SUCCESS_TYPE_KEY, SUCCESS_ADDING_DATA);
+	answer_json.addObject(VALUE_KEY, json_operation);
+	answer_json.addString(DATA_TYPE_KEY, DATA_OPERATION);
 	wstring answer_message = answer_json.toString();
 	this->dispatcher->throwMessage(answer_message);
 }

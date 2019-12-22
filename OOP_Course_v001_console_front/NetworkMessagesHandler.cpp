@@ -20,6 +20,12 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 			if (json_message.getString(SUCCESS_TYPE_KEY).compare(SUCCESS_READING_FILE) == 0) {
 				wcout << "Successfuly read file" << endl;
 			}
+			if (json_message.getString(SUCCESS_TYPE_KEY).compare(SUCCESS_ADDING_DATA) == 0) {
+				if (json_message.getString(DATA_TYPE_KEY).compare(DATA_OPERATION) == 0) {
+					wcout << "Successfuly added a new operation" << endl;
+					this->handleAddDataSuccessMessage(json_message);
+				}
+			}
 		}
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_SAVE) == 0) {
 			if (json_message.getString(SAVE_DATA_KEY).compare(SAVE_TEXT) == 0) {
@@ -102,6 +108,13 @@ void NetworkMessagesHandler::handleBinaryTetMessage(MagicJSON::JsonObject messag
 	file.write((char*)buffer, size*sizeof(byte));
 	delete[] buffer;
 	wcout << "successfully saved file" << endl;
+}
+
+void NetworkMessagesHandler::handleAddDataSuccessMessage(MagicJSON::JsonObject message) {
+	ATable::Table* table = constructTableForOperations("new object");
+	addOperationToTable(message.getObject(VALUE_KEY), table);
+	table->print(cout);
+	delete table;
 }
 
 

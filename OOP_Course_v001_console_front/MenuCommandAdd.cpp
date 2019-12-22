@@ -62,7 +62,7 @@ void MenuCommandAdd::handleCommnad(wstring inputData) {
 	int abonent_year = stoi(queryInput(&isInteger, INCORRECT_YEAR_MSG));
 
 	wcout << "input disk length:" << endl;
-	int disk_lenght = stoi(queryInput(&isInteger, INCORRECT_NUMBER_MSG));
+	int disk_length = stoi(queryInput(&isInteger, INCORRECT_NUMBER_MSG));
 	wcout << "input disk name:" << endl;
 	wstring disk_name = queryInput(&isName, INCORRECT_NAME_MSG);
 	wcout << "input disk day:" << endl;
@@ -91,7 +91,7 @@ void MenuCommandAdd::handleCommnad(wstring inputData) {
 	json.addString(L"abonent_surename", abonent_surename);
 	json.addInteger(L"abonent_month", abonent_month);
 	json.addInteger(L"abonent_year", abonent_year);
-	json.addInteger(L"disk_lenght", disk_lenght);
+	json.addInteger(L"disk_length", disk_length);
 	json.addString(L"disk_name", disk_name);
 	json.addInteger(L"disk_day", disk_day);
 	json.addInteger(L"disk_month", disk_month);
