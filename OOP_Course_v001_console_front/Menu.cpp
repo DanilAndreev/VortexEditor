@@ -2,6 +2,7 @@
 #include <codecvt>
 #include <locale>
 
+extern mutex console_writing_mutex;
 
 Menu::Menu() : WMenu::WonderMenu(L"exit") {}
 
@@ -18,5 +19,7 @@ void Menu::print() {
 		table.addCell("name", new StringCell(converter.to_bytes(item->getKey().c_str())));
 		table.addCell("decription", new StringCell(converter.to_bytes(item->getDescription())));
 	}
+	console_writing_mutex.lock();
 	table.print(cout);
+	console_writing_mutex.unlock();
 }

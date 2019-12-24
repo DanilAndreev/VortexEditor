@@ -17,5 +17,10 @@ public:
 	void deserialize(MagicJSON::JsonObject json) override;
 public:
 	void operator=(const Date2& reference);
+	bool operator> (const Date2& right);
+	bool operator< (const Date2& right);
+	bool operator>= (const Date2& right);
+	bool operator<= (const Date2& right);
+	bool operator== (const Date2& right);
 };
 

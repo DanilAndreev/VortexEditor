@@ -47,6 +47,41 @@ void Date2::operator=(const Date2& reference) {
 	Date1::operator=(reference);
 }
 
+bool Date2::operator>(const Date2& right) {
+	if (this->day > right.day && this->operator>(right)) {
+		return true;
+	}
+	return false;
+}
+
+bool Date2::operator<(const Date2& right) {
+	if (this->day < right.day && this->operator<(right)) {
+		return true;
+	}
+	return false;
+}
+
+bool Date2::operator>=(const Date2& right) {
+	if (this->day >= right.day && this->operator>=(right)) {
+		return true;
+	}
+	return false;
+}
+
+bool Date2::operator<=(const Date2& right) {
+	if (this->day <= right.day && this->operator<=(right)) {
+		return true;
+	}
+	return false;
+}
+
+bool Date2::operator==(const Date2& right) {
+	if (this->day == right.day && this->operator==(right)) {
+		return true;
+	}
+	return false;
+}
+
 MagicJSON::JsonObject Date2::serialize() {
 	MagicJSON::JsonObject json;
 	json.addString(L"__type", L"date");

@@ -24,4 +24,9 @@ public:
 	void deserialize(MagicJSON::JsonObject json) override;
 public:
 	void operator= (const Date1& reference);
+	bool operator> (const Date1& right);
+	bool operator< (const Date1& right);
+	bool operator>= (const Date1& right);
+	bool operator<= (const Date1& right);
+	bool operator== (const Date1& right);
 };

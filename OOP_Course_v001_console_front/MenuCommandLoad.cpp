@@ -66,7 +66,7 @@ void MenuCommandLoad::handleCommnad(wstring inputData) {
 			try {
 				wifstream file;
 				file.exceptions(std::wifstream::failbit | std::wifstream::badbit);
-				file.open(tokens[2]);
+				file.open(FILES_DIRECTORY + tokens[2]);
 				wstring buffer;
 				wstring token;
 				while (!file.eof()) {

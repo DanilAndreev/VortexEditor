@@ -4,7 +4,7 @@
 #include "Date2.h"
 #include "Disk.h"
 
-class Operation : public Returnable, public Fileable, public Serializeable {
+class Operation : public Returnable, public Fileable, public Serializeable, public Object {
 protected:
 	Date2 date;
 	Abonent abonent;

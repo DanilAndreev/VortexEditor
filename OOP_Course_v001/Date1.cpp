@@ -79,3 +79,43 @@ void Date1::operator=(const Date1& reference) {
 	this->year = reference.year;
 	this->month = reference.month;
 }
+
+
+bool Date1::operator>(const Date1& right) {
+	if (this->year > right.year && this->month > right.month) {
+		return true;
+	}
+	return false;
+}
+
+
+bool Date1::operator<(const Date1& right) {
+	if (this->year < right.year && this->month < right.month) {
+		return true;
+	}
+	return false;
+}
+
+
+bool Date1::operator>=(const Date1& right) {
+	if (this->year >= right.year && this->month >= right.month) {
+		return true;
+	}
+	return false;
+}
+
+
+bool Date1::operator<=(const Date1& right) {
+	if (this->year <= right.year && this->month <= right.month) {
+		return true;
+	}
+	return false;
+}
+
+
+bool Date1::operator==(const Date1& right) {
+	if (this->year == right.year && this->month == right.month) {
+		return true;
+	}
+	return false;
+}

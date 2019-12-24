@@ -5,6 +5,8 @@
 #include <codecvt>
 #include <fstream>
 
+mutex console_writing_mutex;
+
 NetworkMessagesHandler::NetworkMessagesHandler() {}
 
 
@@ -19,11 +21,15 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 		}
 		if (json_message.getString(COMMAND_TYPE_KEY).compare(COMMAND_SUCCESS) == 0) {
 			if (json_message.getString(SUCCESS_TYPE_KEY).compare(SUCCESS_READING_FILE) == 0) {
+				console_writing_mutex.lock();
 				wcout << "Successfuly read file" << endl;
+				console_writing_mutex.unlock();
 			}
 			if (json_message.getString(SUCCESS_TYPE_KEY).compare(SUCCESS_ADDING_DATA) == 0) {
 				if (json_message.getString(DATA_TYPE_KEY).compare(DATA_OPERATION) == 0) {
+					console_writing_mutex.lock();
 					wcout << "Successfuly added a new operation" << endl;
+					console_writing_mutex.unlock();
 					this->handleAddDataSuccessMessage(json_message);
 				}
 			}
@@ -43,7 +49,9 @@ void NetworkMessagesHandler::handleMessage(wstring& message) {
 		}
 	}
 	catch (MagicJSON::JsonException e){
+		console_writing_mutex.lock();
 		wcout << "Error: recieved error type message" << endl;
+		console_writing_mutex.unlock();
 		MagicJSON::JsonObject answer_json;
 		answer_json.addString(COMMAND_TYPE_KEY, COMMAND_ERROR);
 		answer_json.addString(ERROR_TYPE_KEY, ERROR_INVALID_COMMAND);
@@ -67,10 +75,12 @@ void NetworkMessagesHandler::handleSendAllDataMessage(MagicJSON::JsonObject mess
 		addOperationToTable(returns.getObject(i), table_returns);
 	}
 
+	console_writing_mutex.lock();
 	wcout << "extraditions:" << endl;
 	table_extraditions->print(cout);
 	wcout << "returns:" << endl;
 	table_returns->print(cout);
+	console_writing_mutex.unlock();
 
 	delete table_extraditions;
 	delete table_returns;
@@ -87,10 +97,14 @@ void NetworkMessagesHandler::handleSaveTextMessage(MagicJSON::JsonObject message
 		file << save_data.toString();
 	}
 	catch (wofstream::failure e) {
+		console_writing_mutex.lock();
 		wcout << "Error: unable to save in file: " << message.getString(PATH_KEY) << endl;
+		console_writing_mutex.unlock();
 		return;
 	}
+	console_writing_mutex.lock();
 	wcout << "successfully saved file" << endl;
+	console_writing_mutex.unlock();
 }
 
 
@@ -106,14 +120,18 @@ void NetworkMessagesHandler::handleSaveBinaryMessage(MagicJSON::JsonObject messa
 		file.open(FILES_DIRECTORY + message.getString(PATH_KEY) + BINARY_EXTENSION, ios::binary);
 	}
 	catch (ofstream::failure e) {
+		console_writing_mutex.lock();
 		wcout << "Error: unable to save in file: " << message.getString(PATH_KEY) << endl;
+		console_writing_mutex.unlock();
 		return;
 	}
 	byte* buffer = new byte[size];
 	memcpy(buffer, base_string.c_str(), size*sizeof(byte));
 	file.write((char*)buffer, size*sizeof(byte));
 	delete[] buffer;
+	console_writing_mutex.lock();
 	wcout << "successfully saved file" << endl;
+	console_writing_mutex.unlock();
 }
 
 
@@ -132,7 +150,9 @@ void NetworkMessagesHandler::handleGetStatisticMessage(MagicJSON::JsonObject mes
 
 	table->addCell("film_length", new ATable::DoubleCell(message.getObject(VALUE_KEY).getFloat(L"average_length")));
 	table->addCell("name_length", new ATable::DoubleCell(message.getObject(VALUE_KEY).getFloat(L"average_symbols")));
+	console_writing_mutex.lock();
 	table->print(cout);
+	console_writing_mutex.unlock();
 	delete table;
 }
 
