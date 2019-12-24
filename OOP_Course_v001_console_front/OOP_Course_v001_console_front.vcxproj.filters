@@ -178,14 +178,14 @@
     <ClInclude Include="MenuCommandAdd.h">
       <Filter>Файлы заголовков\MyWonderMenuCommands</Filter>
     </ClInclude>
-    <ClInclude Include="MenuCommandStat.h">
+    <ClInclude Include="Directories.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="MenuCommandExit.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\MyWonderMenuCommands</Filter>
     </ClInclude>
-    <ClInclude Include="Directories.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="MenuCommandStat.h">
+      <Filter>Файлы заголовков\MyWonderMenuCommands</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
