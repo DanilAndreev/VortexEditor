@@ -18,4 +18,6 @@ public:
 	virtual Fileable* (*getObjectCreator(size_t hash))(void);
 public:
 	void operator=(const FVector& reference);
+public:
+	using vector<Fileable*>::operator[];
 };
